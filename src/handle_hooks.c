@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 11:59:01 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/29 10:50:02 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/29 13:08:29 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,19 +183,19 @@ int		fun(t_environment *env)
 			wall_x = env->pos.x + perp_wall_dist * ray_dir.x;
 		wall_x -=	floor((wall_x))	;
 
-		tex_x = (int)(wall_x * (double)(TEX_WIDTH));
+		tex_x = (int)(wall_x * (double)(env->tex[text_num].x));
 		if (side == 0 && ray_dir.x > 0)
-			tex_x = TEX_WIDTH - tex_x - 1;
+			tex_x = env->tex[text_num].x - tex_x - 1;
 		if (side == 1 && ray_dir.y < 0)
-			tex_x = TEX_WIDTH - tex_x - 1;
+			tex_x = env->tex[text_num].x - tex_x - 1;
 
 		y = draw_start.y;
 		while (y < draw_end.y)
 		{
 			d = y * 256 - WINDOW_HEIGHT * 128 + line_height * 128;
 
-			tex_y = ((d * TEX_HEIGHT) / line_height) / 256;
-			colour = env->textures[text_num].data[TEX_HEIGHT * tex_y + tex_x];
+			tex_y = ((d * env->tex[text_num].y) / line_height) / 256;
+			colour = env->tex[text_num].data[env->tex[text_num].y * tex_y + tex_x];
 			if (side == 1)
 				colour = (colour >> 1) & 8355711;
 			pixel_put_image(&env->img, colour, x, y);
@@ -228,7 +228,7 @@ int		fun(t_environment *env)
 	if (env->keys[13])
 	{
 		if (!worldMap[(int)(env->pos.x + env->dir.x * move_speed)][(int)env->pos.y])
-			env->pos.x += env->dir.x * move_speed;
+			env->pos.x += (env->dir.x) * move_speed;
 		if (!worldMap[(int)env->pos.x][(int)(env->pos.y + env->dir.y * move_speed)])
 			env->pos.y += env->dir.y * move_speed;
 	}

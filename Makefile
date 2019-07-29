@@ -32,7 +32,8 @@ SRC_NAME =	main.c \
 			images.c \
 			draw_line.c \
 			gfx_utility.c \
-			handle_hooks.c
+			handle_hooks.c \
+			textures.c
 
 LIBS = -L $(LIBFT_PATH) -lft -L $(VEC_LIB_PATH) -lvec
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))

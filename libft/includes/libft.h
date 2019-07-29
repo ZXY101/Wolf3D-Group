@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 09:42:10 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/05 16:26:30 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/29 12:17:46 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,4 +121,5 @@ void				ft_foreachs(char *arr, size_t n, void (*f)(char));
 */
 int					get_next_line(const int fd, char **line);
 void				ft_swap(void *a, void *b, size_t s);
+char	*ft_strjoin_free(char *s1, char *s2, int free1, int free2);
 #endif
