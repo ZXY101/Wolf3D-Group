@@ -6,7 +6,7 @@
 #    By: stenner <stenner@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/07/29 12:06:10 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/29 12:17:41 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,12 +34,14 @@ SRC_NAME =	main.c \
 			gfx_utility.c \
 			handle_hooks.c
 
+LIBS = -L $(LIBFT_PATH) -lft -L $(VEC_LIB_PATH) -lvec
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 
 SRCO = $(patsubst %.c, %.o, $(SRC))
 
 ifeq ($(UNAME_S),Linux)
-	MLX_FLAGS =  -lmlx -lXext -lX11 -lm
+	LDEP = @git clone https://github.com/Rubzy0422/minilibx minilibx;make -C minilibx
+	MLX_FLAGS = minilibx/libmlx.a -lXext -lX11 -lm
 endif
 ifeq ($(UNAME_S),Darwin)
 	MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit -lm
@@ -63,7 +65,7 @@ $(VEC_LIB_PATH)libvec.a:
 	@make -C $(VEC_LIB_PATH)
 
 $(NAME): $(SRCO) $(LIBFT_PATH)libft.a $(VEC_LIB_PATH)libvec.a
-	@gcc $(FLAGS) $(SRCO) -L $(LIBFT_PATH) -lft -L $(VEC_LIB_PATH) -lvec -o $(NAME) $(MLX_FLAGS)
+	@gcc $(FLAGS) $(SRCO) $(LIBS) -o $(NAME) $(MLX_FLAGS)
 	@echo "\033[32mBinary \033[1;32m$(NAME)\033[1;0m\033[32m Created.\033[0m"
 
 $(SRC_PATH)%.o: $(SRC_PATH)%.c $(INCLUDES_PATH)$(NAME).h
