@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 11:59:01 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/29 13:08:29 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/29 15:30:52 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 **This c file has all of the functions that handle events
 */
 
-#include "../includes/wolf3d.h"
+#include <wolf3d.h>
 
 /*
 **Quit the program when the close button is clicked
@@ -42,9 +42,9 @@ int worldMap[MAP_WIDTH][MAP_HEIGHT]=
   {4,0,0,0,0,0,0,0,0,0,0,0,6,2,0,0,5,0,0,2,0,0,0,2},
   {4,0,0,0,0,0,0,0,0,4,6,0,6,2,0,0,0,0,0,2,2,0,2,2},
   {4,0,6,0,6,0,0,0,0,4,6,0,0,0,0,0,5,0,0,0,0,0,0,2},
-  {4,0,0,5,0,0,0,0,0,4,6,0,6,2,0,0,0,0,0,2,2,0,2,2},
-  {4,0,6,0,6,0,0,0,0,4,6,0,6,2,0,0,5,0,0,2,0,0,0,2},
-  {4,0,0,0,0,0,0,0,0,4,6,0,6,2,0,0,0,0,0,2,0,0,0,2},
+  {4,0,0,5,0,0,0,0,0,4,6,0,1,2,0,0,0,0,0,2,2,0,2,2},
+  {4,0,6,0,6,0,0,0,0,4,6,0,2,2,0,0,5,0,0,2,0,0,0,2},
+  {4,0,0,0,0,0,0,0,0,4,6,0,3,2,0,0,0,0,0,2,0,0,0,2},
   {4,4,4,4,4,4,4,4,4,4,1,1,1,2,2,2,2,2,2,3,3,3,3,3}
 };
 
@@ -195,7 +195,8 @@ int		fun(t_environment *env)
 			d = y * 256 - WINDOW_HEIGHT * 128 + line_height * 128;
 
 			tex_y = ((d * env->tex[text_num].y) / line_height) / 256;
-			colour = env->tex[text_num].data[env->tex[text_num].y * tex_y + tex_x];
+			if (env->tex[text_num].y * tex_y + tex_x < env->tex[text_num].y * env->tex[text_num].x && env->tex[text_num].y * tex_y + tex_x > 0)
+				colour = env->tex[text_num].data[env->tex[text_num].y * tex_y + tex_x];
 			if (side == 1)
 				colour = (colour >> 1) & 8355711;
 			pixel_put_image(&env->img, colour, x, y);
@@ -204,7 +205,7 @@ int		fun(t_environment *env)
 		y = draw_end.y;
 		while (y < WINDOW_HEIGHT)
 		{
-			pixel_put_image(&env->img, rgbtoi(100,10,15), x, y);
+			pixel_put_image(&env->img, rgbtoi(30,10,15), x, y);
 			y++;
 		}
 		
@@ -227,10 +228,14 @@ int		fun(t_environment *env)
 
 	if (env->keys[13])
 	{
-		if (!worldMap[(int)(env->pos.x + env->dir.x * move_speed)][(int)env->pos.y])
+		if (!worldMap[(int)((env->pos.x + env->dir.x * move_speed*1.8))][(int)env->pos.y])
+		{
+
 			env->pos.x += (env->dir.x) * move_speed;
-		if (!worldMap[(int)env->pos.x][(int)(env->pos.y + env->dir.y * move_speed)])
+		}
+		if (!worldMap[(int)env->pos.x][(int)((env->pos.y + env->dir.y * move_speed*1.8))])
 			env->pos.y += env->dir.y * move_speed;
+		//printf("x = %f, y = %f\n",env->pos.x ,env->pos.y);
 	}
 
 	if (env->keys[1])
@@ -239,6 +244,7 @@ int		fun(t_environment *env)
 			env->pos.x -= env->dir.x * move_speed;
 		if (!worldMap[(int)env->pos.x][(int)(env->pos.y - env->dir.y * move_speed)])
 			env->pos.y -= env->dir.y * move_speed;
+		printf("x = %f, y = %f\n",env->pos.x ,env->pos.y);
 	}
 
 	if (env->keys[2])

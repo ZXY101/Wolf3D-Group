@@ -6,11 +6,11 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:27 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/29 13:08:35 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/29 13:17:07 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/wolf3d.h"
+#include <wolf3d.h>
 
 
 int		main(void)

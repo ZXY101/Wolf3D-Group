@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 11:13:27 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/23 14:58:00 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/29 13:17:07 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 **This c file contains any handy functions that can be used in a gfx project
 */
 
-#include "../includes/wolf3d.h"
+#include <wolf3d.h>
 
 /*
 **Function to convert Normalised Device Coordinates to screen space

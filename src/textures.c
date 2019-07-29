@@ -6,18 +6,18 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 11:50:17 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/29 13:06:58 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/29 15:19:40 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/wolf3d.h"
+#include <wolf3d.h>
 
 void	ft_init_tex(t_environment *env)
 {
-	env->tex[0].name = "textures/middle.xpm";
-	env->tex[1].name = "textures/wall2.xpm";
-	env->tex[2].name = "textures/wall3.xpm";
-	env->tex[3].name = "textures/door.xpm";
+	env->tex[0].name = "textures/left.xpm";
+	env->tex[1].name = "textures/middle.xpm";
+	env->tex[2].name = "textures/right.xpm";
+	env->tex[3].name = "textures/hmmm.xpm";
 	env->tex[4].name = "textures/wall4.xpm";
 	env->tex[5].name = "textures/wall5.xpm";
 	env->tex[6].name = "textures/banner.xpm";
