@@ -6,7 +6,7 @@
 #    By: stenner <stenner@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/07/29 12:33:11 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/29 15:40:41 by stenner          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ SRC_NAME =	main.c \
 			draw_line.c \
 			gfx_utility.c \
 			handle_hooks.c \
-			textures.c
+			textures.c \
+			misc.c
 
 LIBS = -L $(LIBFT_PATH) -lft -L $(VEC_LIB_PATH) -lvec
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))

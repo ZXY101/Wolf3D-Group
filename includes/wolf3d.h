@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/29 13:16:08 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/29 16:24:51 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,6 @@
 # include <sys/time.h>
 //del me
 #include <stdio.h>
-
-// typedef struct	s_texture
-// {
-// 	int			width;
-// 	int			height;
-// 	void		*img;
-// 	int			*data;
-// }				t_texture;
 
 typedef struct			s_texture
 {
@@ -87,10 +79,10 @@ typedef struct	s_environment
 	t_timeval	old_time;
 	double		delta_time;
 	t_texture	tex[TEXMAX];
+	int			map[MAP_WIDTH][MAP_HEIGHT];
 }				t_environment;
 
 
-int		key_down(int key, t_environment *env);
 
 /*
 **Utility
@@ -123,4 +115,9 @@ void	ft_init_tex(t_environment *env);
 void	ft_validate_tex(t_environment *env);
 void	ft_load_tex(t_environment *env);
 
+/*
+**Misc
+*/
+void	init_env(t_environment *env);
+void		ft_error(char *str);
 #endif

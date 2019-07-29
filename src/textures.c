@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 11:50:17 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/29 15:19:40 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/29 15:45:22 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_validate_tex(t_environment *env)
 		{
 			str = ft_strjoin_free("Texture ", ft_itoa(i + 1), 0, 1);
 			str = ft_strjoin_free(str, " Could not be Loaded!", 1, 0);
-			//ft_error(str);
+			ft_error(str);
 		}
 		i++;
 	}
