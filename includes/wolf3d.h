@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/29 10:11:12 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/29 12:05:43 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
 # define FILL_RGB(RGB, R, G, B) RGB.r = R, RGB.g = G, RGB.b = B
-# include "../libft/includes/libft.h"
-# include "../libvec/includes/libvec.h"
+#include <libft.h>
+# include <libvec.h>
 # include <mlx.h>
 # include <sys/time.h>
 //del me
