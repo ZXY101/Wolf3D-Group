@@ -6,7 +6,7 @@
 #    By: stenner <stenner@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/07/29 12:17:41 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/29 12:33:11 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,13 @@ fclean: clean
 	@make -C $(VEC_LIB_PATH)/ fclean
 	@/bin/rm -rf $(NAME)
 	@echo "\033[31mBin \033[1;31m$(NAME)\033[1;0m\033[31m Removed.\033[0m"
+
+
+init: destroy
+	$(LDEP)
+	make
+destroy:
+	@rm -rf minilibx
 
 re: fclean all
 
