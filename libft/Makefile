@@ -6,7 +6,7 @@
 #    By: stenner <stenner@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/17 13:35:09 by stenner           #+#    #+#              #
-#    Updated: 2019/07/09 12:23:02 by stenner          ###   ########.fr        #
+#    Updated: 2019/07/29 12:17:11 by stenner          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ SRC_NAME = ft_atoi.c \
 		ft_power.c \
 		get_next_line.c \
 		ft_swap.c \
+		ft_strjoin_free.c
 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 
