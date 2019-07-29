@@ -20,8 +20,8 @@
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
 # define FILL_RGB(RGB, R, G, B) RGB.r = R, RGB.g = G, RGB.b = B
-# include "../libft/includes/libft.h"
-# include "../libvec/includes/libvec.h"
+#include <libft.h>
+# include <libvec.h>
 # include <mlx.h>
 # include <sys/time.h>
 //del me
