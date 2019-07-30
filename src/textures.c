@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 11:50:17 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/30 12:44:23 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/30 15:51:30 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_init_tex(t_environment *env)
 {
-	env->tex[0].name = "textures/left.xpm";
-	env->tex[1].name = "textures/middle.xpm";
-	env->tex[2].name = "textures/right.xpm";
-	env->tex[3].name = "textures/hmmm.xpm";
-	env->tex[4].name = "textures/wall4.xpm";
-	env->tex[5].name = "textures/wall5.xpm";
-	env->tex[6].name = "textures/banner.xpm";
-	env->tex[7].name = "textures/torch.xpm";
+	env->tex[0].name = "textures/eagle.xpm";
+	env->tex[1].name = "textures/redbrick.xpm";
+	env->tex[2].name = "textures/purplestone.xpm";
+	env->tex[3].name = "textures/greystone.xpm";
+	env->tex[4].name = "textures/bluestone.xpm";
+	env->tex[5].name = "textures/mossy.xpm";
+	env->tex[6].name = "textures/wood.xpm";
+	env->tex[7].name = "textures/colorstone.xpm";
 	env->tex[8].name = "textures/wood.xpm";
 	env->tex[9].name = "textures/water.xpm";
 }

@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/30 12:45:16 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/30 15:42:52 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,6 @@ typedef struct		s_environment
 	t_tex_data		td;
 }					t_environment;
 
-
-
 /*
 **Utility
 */
@@ -152,6 +150,7 @@ void				put_image(t_environment *env, t_mlx_image *img);
 /*
 **Textures
 */
+
 void				ft_init_tex(t_environment *env);
 void				ft_validate_tex(t_environment *env);
 void				ft_load_tex(t_environment *env);
@@ -163,6 +162,7 @@ void				draw_floor(t_environment *env, int x);
 /*
 **Misc
 */
+
 void				init_env(t_environment *env);
 void				ft_error(char *str);
 void				printf_fps(t_environment *env);
@@ -170,6 +170,7 @@ void				printf_fps(t_environment *env);
 /*
 **Render
 */
+
 void				initialise_vars(t_environment *env, int x);
 void				calc_step_sd(t_environment *env);
 void				exec_dda(t_environment *env);
