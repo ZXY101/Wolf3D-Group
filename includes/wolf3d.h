@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
+/*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/29 16:24:51 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/30 12:08:42 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ typedef struct	s_environment
 	int			map[MAP_WIDTH][MAP_HEIGHT];
 }				t_environment;
 
-
-
 /*
 **Utility
 */
@@ -120,4 +118,7 @@ void	ft_load_tex(t_environment *env);
 */
 void	init_env(t_environment *env);
 void		ft_error(char *str);
+
+//Map stuff
+t_list	*map_interpreter(const char *path);
 #endif
