@@ -76,7 +76,7 @@ void	draw_floor(t_environment *env, int x)
 	y = env->rd.draw_end.y + 1;
 	while (y < WINDOW_HEIGHT)
 	{
-		current_dist = WINDOW_HEIGHT / (2 * y - WINDOW_HEIGHT);
+		current_dist = WINDOW_HEIGHT / (2.0 * y - WINDOW_HEIGHT);
 		weight = (current_dist - dist_player) / (dist_wall - dist_player);
 
 		current_floor.x = weight * floor_wall.x + (1 - weight) * env->pos.x;
