@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: stenner <stenner@student.42.fr>            +#+  +:+       +#+         #
+#    By: rcoetzer <rcoetzer@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/07/29 12:33:11 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/30 20:01:10 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ LIBFT_PATH = ./libft/
 VEC_LIB_PATH = ./libvec/
 
 SRC_PATH = ./src/
-
+SDL_LOC = $(CURDIR)/SDL
+SDL_CONF = SDLmake/bin/sdl2-config
 INCLUDES_PATH = ./includes/
 UNAME_S := $(shell uname -s)
 
@@ -33,9 +34,10 @@ SRC_NAME =	main.c \
 			draw_line.c \
 			gfx_utility.c \
 			handle_hooks.c \
-			textures.c
+			textures.c \
+			main_menu.c
 
-LIBS = -L $(LIBFT_PATH) -lft -L $(VEC_LIB_PATH) -lvec
+LIBS = -L $(LIBFT_PATH) -lft -L $(VEC_LIB_PATH) -lvec  
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 
 SRCO = $(patsubst %.c, %.o, $(SRC))
@@ -43,9 +45,12 @@ SRCO = $(patsubst %.c, %.o, $(SRC))
 ifeq ($(UNAME_S),Linux)
 	LDEP = @git clone https://github.com/Rubzy0422/minilibx minilibx;make -C minilibx
 	MLX_FLAGS = minilibx/libmlx.a -lXext -lX11 -lm
+	LIBS += -L ./SDLmake -l SDL2-2.0
+
 endif
 ifeq ($(UNAME_S),Darwin)
 	MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit -lm
+	LIBS += $(shell ./$(SDL2_CONFIG) --cflags --libs)
 endif
 
 FLAGS = -Wall -Werror -Wextra
@@ -85,10 +90,16 @@ fclean: clean
 
 init: destroy
 	$(LDEP)
-	make
+	tar -xvzf SDL_SOURCE.tar.gz
+	mkdir -p SDL2-2.0.10/build
+	cd SDL2-2.0.10/build; ../configure --prefix=$(SDL_LOC)\
+	make; make install
+	@make
+
 destroy:
 	@rm -rf minilibx
-
+	@rm -rf SDLmake
+	@rm -rf SDL2-2.0.10
 re: fclean all
 
 .PHONY: all fclean clean re LIBFT VECLIB 

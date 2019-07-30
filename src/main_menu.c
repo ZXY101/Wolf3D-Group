@@ -6,11 +6,11 @@
 /*   By: rcoetzer <rcoetzer@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 13:00:38 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/29 14:49:32 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/30 20:07:50 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <wolf.h>
+#include <wolf3d.h>
 
 typedef struct s_menu
 {
@@ -32,12 +32,12 @@ SDL_Texture		*load_tex(char *filename, SDL_Renderer *render)
 	surf = NULL;
 	surf = SDL_LoadBMP(filename);
 	if (!surf)
-		ft_error(ft_strjoin("Couldn't load: ", filename));	
+		ft_putendl(ft_strjoin("Couldn't load: ", filename));	//ft_error
 	else
 	{
 		tex = SDL_CreateTextureFromSurface(render, surf);
 		if (!tex)
-			ft_error(ft_strjoin("Couldn't create texture: ",  SDL_GetError()));
+			ft_putendl(ft_strjoin("Couldn't create texture: ",  SDL_GetError())); //ft_error
 	}
 	SDL_FreeSurface(surf);
 	return (tex);	
@@ -48,13 +48,13 @@ char	*main_menu()
 	t_menu	menu;
 
 	SDL_Init(SDL_INIT_VIDEO);
-	menu.win = SDL_CreateWindow("MENU!",SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,WIN_X ,WIN_Y, SDL_WINDOW_SHOWN);
+	menu.win = SDL_CreateWindow("MENU!",SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,WINDOW_LENGTH ,WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
 	if (!menu.win)
-		ft_error("Window couldn't init!");	
+		ft_putendl("Window couldn't init!"); /*ft_error */	
 	menu.render = SDL_CreateRenderer(menu.win, -1, 0);
 	if (!menu.render)
-		ft_error("Renderer cried on his way home!");
-	menu.img = load_tex("LOAD.bmp", menu.render);
+		ft_putendl("Renderer cried on his way home!"); /*ft_eror */
+	menu.img = load_tex("./textures/main_menu/main.bmp", menu.render);
 	menu.run = 1;
 	while (menu.run == 1)
 	{
