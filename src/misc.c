@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 15:37:37 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/29 17:00:08 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/30 10:03:20 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,24 @@ void		ft_error(char *str)
 	ft_putendl_fd(prompt, 2);
 	free(prompt);
 	exit(-1);
+}
+
+void		update_dt(t_environment *env)
+{
+	t_timeval	time;
+
+	gettimeofday(&time, NULL);
+	env->dt = (time.tv_sec - env->old_time.tv_sec);
+	env->dt += (time.tv_usec - env->old_time.tv_usec) / 1000000.0;
+	ft_memcpy(&env->old_time, &time, sizeof(t_timeval));
+}
+
+void		printf_fps(t_environment *env)
+{
+	char *str;
+
+	str = ft_itoa(1 / env->dt);
+	mlx_string_put(env->mlx_ptr, env->win_ptr,10,5, 0xffffff,"FPS: ");
+	mlx_string_put(env->mlx_ptr, env->win_ptr,50,5, 0xffffff,str);
+	free(str);
 }
