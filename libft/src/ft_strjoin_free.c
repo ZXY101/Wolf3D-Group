@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/23 14:44:27 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/29 16:33:19 by stenner          ###   ########.fr       */
+/*   Created: 2019/07/29 12:14:07 by stenner           #+#    #+#             */
+/*   Updated: 2019/07/29 12:16:16 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <wolf3d.h>
+#include "../includes/libft.h"
 
-
-int		main(void)
+char	*ft_strjoin_free(char *s1, char *s2, int free1, int free2)
 {
-	t_environment	env;
-	init_env(&env);
-	handle_hooks(env.win_ptr, &env);
-	mlx_loop(env.mlx_ptr);
-	return (0);
+	char *ret;
+
+	ret = ft_strjoin(s1, s2);
+	if (free1)
+		free(s1);
+	if (free2)
+		free(s2);
+	return (ret);
 }

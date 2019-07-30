@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 12:45:17 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/23 14:56:13 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/29 13:17:07 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 **This c file contains all neccessary functions pertaining to mlx images
 */
 
-#include "../includes/wolf3d.h"
+#include <wolf3d.h>
 
 /*
 **Places a pixel on the image at the given x & y coordinate

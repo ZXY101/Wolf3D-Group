@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 11:26:45 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/24 12:54:42 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/29 13:17:07 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 **This c file includes all functions needed to draw a line between two points
 */
 
-#include "../includes/wolf3d.h"
+#include <wolf3d.h>
 
 /*
 **Line drawing algorithm for when m < 1
