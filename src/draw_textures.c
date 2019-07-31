@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 12:31:38 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/30 18:50:50 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/31 13:51:34 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	draw_floor(t_environment *env, int x)
 	int floor_tex_x;
 	int floor_tex_y;
 	int colour;
+	int colour2;
 	dist_wall = env->rd.pwd;
 	dist_player = 0;
 	if (env->rd.draw_end.y < 0)
@@ -82,14 +83,15 @@ void	draw_floor(t_environment *env, int x)
 		current_floor.x = weight * floor_wall.x + (1 - weight) * env->pos.x;
 		current_floor.y = weight * floor_wall.y + (1 - weight) * env->pos.y;
 
-		floor_tex_x = (int)(current_floor.x * env->tex[6].x) % env->tex[6].x;
-		floor_tex_y = (int)(current_floor.y * env->tex[6].y) % env->tex[6].y;
+		floor_tex_x = (int)(current_floor.x * env->tex[3].x) % env->tex[3].x;
+		floor_tex_y = (int)(current_floor.y * env->tex[3].y) % env->tex[3].y;
 
 		colour	= (env->tex[3].data[env->tex[3].x * floor_tex_y + floor_tex_x]
 		>> 1) & 8355711;
+		colour2	= (env->tex[6].data[env->tex[6].x * floor_tex_y + floor_tex_x]);
 
 		pixel_put_image(&env->img, colour, x, y);
-		pixel_put_image(&env->img, colour,x , WINDOW_HEIGHT - y);
+		pixel_put_image(&env->img, colour2,x , WINDOW_HEIGHT - y);
 		y++;
 	}
 
