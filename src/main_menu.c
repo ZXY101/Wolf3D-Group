@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 13:00:38 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/31 13:56:43 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/31 18:04:25 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,5 @@ char			*main_menu(void)
 	sdl_exit(&menu);
 	if (menu.run == 0)
 		exit(0);
-	return ("maps/lvl0.map");
+	return ("maps/pepe.map");
 }

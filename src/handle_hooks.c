@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_hooks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 11:59:01 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/30 12:35:51 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/31 18:51:17 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	finish(void *none)
 int		key_down(int key, t_environment *env)
 {
 	
-	if (key == 53)
+	if (key == MLX_ESC)
 		exit(0);
 	env->keys[key] = 1;
 	return (0);
@@ -72,8 +72,8 @@ int		fun(t_environment *env)
 
 void		handle_hooks(void *win_ptr, t_environment *env)
 {
-	mlx_hook(win_ptr, 2, 0L, key_down, env);
-	mlx_hook(win_ptr, 3, 0L, key_release, env);
-	mlx_hook(win_ptr, 17, 0L, finish, env);
+	mlx_hook(win_ptr, 2, 1L << 0, key_down, env);
+	mlx_hook(win_ptr, 3, 1L << 1, key_release, env);
+	mlx_hook(win_ptr, 17, 1L, finish, env);
 	mlx_loop_hook(env->mlx_ptr, fun, env);
 }

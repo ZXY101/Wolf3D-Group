@@ -6,7 +6,7 @@
 #    By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/07/31 14:20:39 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/31 18:02:41 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,14 +35,13 @@ SRC_NAME =	main.c \
 			gfx_utility.c \
 			handle_hooks.c \
 			textures.c \
-			misc.c \
 			map_interpreter.c \
 			map_split.c \
 			keys.c \
 			render_rays.c \
-      main_menu.c \
-			draw_textures.c
-
+		    main_menu.c \
+			draw_textures.c \
+			misc.c
 LIBS = -L $(LIBFT_PATH) -lft -L $(VEC_LIB_PATH) -lvec 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 SRCO = $(patsubst %.c, %.o, $(SRC))

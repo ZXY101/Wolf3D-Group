@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/31 14:02:45 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/31 18:27:30 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define WINDOW_HEIGHT 480
 # define TEXMAX	10
 # define FILL_RGB(RGB, R, G, B) RGB.r = R, RGB.g = G, RGB.b = B
+# include "keydef.h"
 # include <SDL2/SDL_ttf.h>
 # include <SDL2/SDL_mixer.h>
 # include <SDL2/SDL.h>
@@ -63,8 +64,6 @@ typedef struct			s_line_math
 	double				iq;
 }						t_line_math;
 
-typedef struct	s_mlx_image
-=======
 typedef struct		s_ray_data
 {
 	t_vector 		camera;
@@ -94,32 +93,6 @@ typedef struct		s_tex_data
 	int				d;
 	unsigned int	colour;
 }					t_tex_data;
-
-typedef struct		s_texture
-{
-	void			*img;
-	int				*data;
-	int				b;
-	int				x;
-	int				y;
-	char			*name;
-}					t_texture;
-
-typedef struct		s_rgb
-{
-	int				r;
-	int				g;
-	int				b;
-}					t_rgb;
-
-typedef struct		s_line_math
-{
-	int				delta_x;
-	int				delta_y;
-	double			grad;
-	double			q;
-	double			iq;
-}					t_line_math;
 
 typedef struct		s_mlx_image
 {

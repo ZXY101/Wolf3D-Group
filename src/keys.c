@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 15:47:28 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/30 12:42:08 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/31 18:32:40 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		movement(t_environment *env)
 {
 	env->rot_speed =  3 * env->dt;
 	env->move_speed = env->keys[257] ? 10 * env->dt : 5 * env->dt;
-	if (env->keys[13])
+	if (env->keys[MLX_W] || env->keys[MLX_ARROWUP])
 	{
 		if (!env->map[(int)((env->pos.x + env->dir.x *
 		env->move_speed * 1.8))][(int)env->pos.y])
@@ -25,7 +25,7 @@ void		movement(t_environment *env)
 		env->move_speed * 1.8))])
 			env->pos.y += env->dir.y * env->move_speed;
 	}
-	if (env->keys[1])
+	if (env->keys[MLX_S] || env->keys[MLX_ARROWDOWN])
 	{
 		if (!env->map[(int)(env->pos.x - env->dir.x *
 		env->move_speed * 1.8 )][(int)env->pos.y])
@@ -41,7 +41,7 @@ static void	rotate_left(t_environment *env)
 	double		old_dir_x;
 	double		old_plane_x;
 
-	if (env->keys[2])
+	if (env->keys[MLX_D])
 	{
 		old_dir_x = env->dir.x;
 		env->dir.x = env->dir.x * cos(-env->rot_speed) -
@@ -61,7 +61,7 @@ static void	rotate_right(t_environment *env)
 	double		old_dir_x;
 	double		old_plane_x;
 
-	if (env->keys[0])
+	if (env->keys[MLX_A])
 	{
 		old_dir_x = env->dir.x;
 		env->dir.x = env->dir.x * cos(env->rot_speed) -
