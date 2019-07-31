@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/30 12:45:16 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/31 13:44:59 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,14 +109,13 @@ typedef struct		s_environment
 	t_timeval		old_time;
 	double			dt;
 	t_texture		tex[TEXMAX];
-	int				map[MAP_WIDTH][MAP_HEIGHT];
+	int				**map;
 	double			move_speed;
 	double			rot_speed;
 	t_ray_data		rd;
 	t_tex_data		td;
+	int				map_lst_size;
 }					t_environment;
-
-
 
 /*
 **Utility
@@ -152,6 +151,7 @@ void				put_image(t_environment *env, t_mlx_image *img);
 /*
 **Textures
 */
+
 void				ft_init_tex(t_environment *env);
 void				ft_validate_tex(t_environment *env);
 void				ft_load_tex(t_environment *env);
@@ -163,6 +163,11 @@ void				draw_floor(t_environment *env, int x);
 /*
 **Misc
 */
+
+//Map stuff
+t_list		*map_interpreter(const char *path, t_environment *env);
+void		  map_int_array(t_list *lst, t_environment *env);
+
 void				init_env(t_environment *env);
 void				ft_error(char *str);
 void				printf_fps(t_environment *env);
@@ -170,6 +175,7 @@ void				printf_fps(t_environment *env);
 /*
 **Render
 */
+
 void				initialise_vars(t_environment *env, int x);
 void				calc_step_sd(t_environment *env);
 void				exec_dda(t_environment *env);
