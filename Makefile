@@ -37,6 +37,9 @@ SRC_NAME =	main.c \
 			misc.c \
 			map_interpreter.c \
 			map_split.c \
+			keys.c \
+			render_rays.c \
+			draw_textures.c
 
 LIBS = -L $(LIBFT_PATH) -lft -L $(VEC_LIB_PATH) -lvec
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
