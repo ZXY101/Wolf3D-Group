@@ -6,7 +6,7 @@
 #    By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/07/31 09:24:53 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/31 13:53:45 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,7 @@ SRC_NAME =	main.c \
 			gfx_utility.c \
 			handle_hooks.c \
 			textures.c \
-			main_menu.c \
-			sound.c
+			main_menu.c
 
 LIBS = -L $(LIBFT_PATH) -lft -L $(VEC_LIB_PATH) -lvec 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
@@ -86,11 +85,16 @@ fclean: clean
 init: destroy
 	$(LDEP)
 	tar -xvzf SDL_SOURCE.tar.gz
+	tar -xvzf SDL_MIX.tar.gz
+	tar -xvzf SDL_TEX.tar.gz
 	mkdir -p SDL2-2.0.10/build
-	cd SDL2-2.0.10/build; ../configure --prefix=$(SDL_LOC);\
-	make install
+	mkdir -p SDL2_mixer-2.0.4/build
+	mkdir -p SDL2_ttf-2.0.15/build
+	cd SDL2-2.0.10/build; ../configure --prefix=$(SDL_LOC); make install
+	cd SDL2_mixer-2.0.4/build; ../configure --prefix=$(SDL_LOC); make install
+	cd SDL2_ttf-2.0.15/build; ../configure --prefix=$(SDL_LOC); make install
 	@make
-	@rm -rf SDL2-2.0.10
+	@rm -rf SDL2*
 
 destroy: fclean
 	@rm -rf minilibx

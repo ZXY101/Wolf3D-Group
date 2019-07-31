@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <rcoetzer@42.fr>                  +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/30 20:01:02 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/31 14:02:45 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # define WINDOW_HEIGHT 480
 # define TEXMAX	10
 # define FILL_RGB(RGB, R, G, B) RGB.r = R, RGB.g = G, RGB.b = B
+# include <SDL2/SDL_ttf.h>
+# include <SDL2/SDL_mixer.h>
 # include <SDL2/SDL.h>
 # include <libft.h>
 # include <libvec.h>
@@ -24,31 +26,52 @@
 
 #define MAP_WIDTH 24
 #define MAP_HEIGHT 24
-typedef struct	s_texture
-{
-	void		*img;
-	int			*data;
-	int			b;
-	int			x;
-	int			y;
-	char		*name;
-}				t_texture;
 
-typedef struct	s_rgb
-{
-	int			r;
-	int			g;
-	int			b;
-}				t_rgb;
+typedef struct 	timeval t_timeval;
 
-typedef struct	s_line_math
+typedef struct			s_menu
 {
-	int			delta_x;
-	int			delta_y;
-	double		grad;
-	double		q;
-	double		iq;
-}				t_line_math;
+	SDL_Window			*win;
+	SDL_Texture			*img;
+	SDL_Renderer		*render;
+	SDL_Rect			rec;
+	SDL_Texture			*sprite;
+	SDL_Event			evnt;
+	int					run;
+	SDL_AudioSpec		wav_spec;
+	Uint32				wav_length;
+	Uint8				*wav_buffer;
+	SDL_AudioDeviceID	deviceid;
+	t_timeval			ts;
+	t_timeval			te;
+	double				c_time;				
+}			  			t_menu;
+
+typedef struct			s_texture
+{
+	void				*img;
+	int					*data;
+	int					b;
+	int					x;
+	int					y;
+	char				*name;
+}						t_texture;
+
+typedef struct			s_rgb
+{
+	int					r;
+	int					g;
+	int					b;
+}						t_rgb;
+
+typedef struct			s_line_math
+{
+	int					delta_x;
+	int					delta_y;
+	double				grad;
+	double				q;
+	double				iq;
+}						t_line_math;
 
 typedef struct	s_mlx_image
 {
@@ -61,8 +84,6 @@ typedef struct	s_mlx_image
 	int			height;
 	t_vector	pos;
 }				t_mlx_image;
-
-typedef struct 	timeval t_timeval;
 
 typedef struct	s_environment
 {
@@ -116,4 +137,14 @@ void			ft_load_tex(t_environment *env);
 **Main_Menu And SDL (sound)
 */
 char			*main_menu();
+void			audio_construct(t_menu *menu, char *sound);
+void			sound_load(t_menu *menu);
+void			audio_destruct(t_menu *menu);
+void			sound_loop(t_menu *menu);
+
+
+/*
+**Error Handeling
+*/
+void		ft_error(char *str);
 #endif
