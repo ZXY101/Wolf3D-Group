@@ -29,18 +29,18 @@ all: $(NAME)
 
 $(NAME): $(SRCO)
 	@ar rc $(NAME) $(SRCO)
-	@echo "\033[36mVector Library Compiled."
+	@printf "\e[36mVector Library Compiled."
 
 $(SRC_PATH)%.o: $(SRC_PATH)%.c
 	@gcc $(FLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(SRCO)
-	@echo "\033[94mVector Library Object Files Removed."
+	@printf "\e[94mVector Library Object Files Removed."
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "\033[94mVector Library Removed."
+	@printf "\e[94mVector Library Removed."
 
 re:	fclean all
 

@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 08:04:57 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/31 18:29:41 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/31 19:17:59 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 #  define MLX_ESC		53
 #  define MLX_ARROWUP	126
 #  define MLX_ARROWDOWN	125
+#  define MLX_SHIFT		257
+#  define MLX_ARROWL	123
+#  define MLX_ARROWR	124
+#  define MLX_SPACE		32
 # elif __linux__
 #  define MLX_A			'a'
 #  define MLX_S			's'
@@ -29,5 +33,9 @@
 #  define MLX_ESC		0xff1b
 #  define MLX_ARROWUP	0xff52
 #  define MLX_ARROWDOWN	0xff54
+#  define MLX_SHIFT		65505
+#  define MLX_ARROWL	65361
+#  define MLX_ARROWR	65363
+#  define MLX_SPACE		32
 # endif
 #endif

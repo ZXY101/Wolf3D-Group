@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 15:47:28 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/31 18:32:40 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/07/31 19:09:23 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		movement(t_environment *env)
 {
 	env->rot_speed =  3 * env->dt;
-	env->move_speed = env->keys[257] ? 10 * env->dt : 5 * env->dt;
+	env->move_speed = env->keys[MLX_SHIFT] ? 10 * env->dt : 5 * env->dt;
 	if (env->keys[MLX_W] || env->keys[MLX_ARROWUP])
 	{
 		if (!env->map[(int)((env->pos.x + env->dir.x *
