@@ -35,7 +35,13 @@ SRC_NAME =	main.c \
 			gfx_utility.c \
 			handle_hooks.c \
 			textures.c \
-			main_menu.c
+			misc.c \
+			map_interpreter.c \
+			map_split.c \
+			keys.c \
+			render_rays.c \
+      main_menu.c \
+			draw_textures.c
 
 LIBS = -L $(LIBFT_PATH) -lft -L $(VEC_LIB_PATH) -lvec 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
