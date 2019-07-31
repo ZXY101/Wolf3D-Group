@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   misc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
+/*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 15:37:37 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/29 17:00:08 by stenner          ###   ########.fr       */
+/*   Updated: 2019/07/31 12:38:45 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,17 @@ void	init_env(t_environment *env)
 	ft_init_tex(env);
 	ft_validate_tex(env);
 	ft_load_tex(env);
-	pop_map_placeholder(env);
+	//pop_map_placeholder(env);
 	env->win_ptr = mlx_new_window(env->mlx_ptr, WINDOW_LENGTH, WINDOW_HEIGHT,
 	"wolf3d");
 	init_image(env, &env->img, WINDOW_LENGTH, WINDOW_HEIGHT);
-	env->pos.x = 22;
-	env->pos.y = 11.5;
+	env->pos.x = 3;
+	env->pos.y = 4.5;
 	env->dir.x = -1;
 	env->dir.y = 0;
 	env->plane.x = 0;
 	env->plane.y = 0.66;
+	env->map_lst_size = 0;
 	gettimeofday(&env->old_time, NULL);
 }
 

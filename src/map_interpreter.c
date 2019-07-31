@@ -6,13 +6,13 @@
 /*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 09:41:53 by no-conne          #+#    #+#             */
-/*   Updated: 2019/07/30 13:58:28 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/07/31 11:04:59 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <wolf3d.h>
 
-t_list	*map_interpreter(const char *path)
+t_list	*map_interpreter(const char *path, t_environment *env)
 {
 	t_list	*map;
 	t_list	*tmp;
@@ -27,6 +27,7 @@ t_list	*map_interpreter(const char *path)
 		while (tmp->next != NULL)
 			tmp = tmp->next;
 		tmp->next = ft_lstnew(line, ft_strlen(line) + 1);
+		env->map_lst_size++;
 		free(line);
 	}
 	tmp = map;

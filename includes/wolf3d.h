@@ -6,7 +6,7 @@
 /*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/30 12:08:42 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/07/31 12:32:26 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct	s_environment
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
+	int			map_lst_size;
 	t_mlx_image	img;
 	t_vector	pos;
 	t_vector	dir;
@@ -79,7 +80,7 @@ typedef struct	s_environment
 	t_timeval	old_time;
 	double		delta_time;
 	t_texture	tex[TEXMAX];
-	int			map[MAP_WIDTH][MAP_HEIGHT];
+	int			**map;
 }				t_environment;
 
 /*
@@ -120,5 +121,6 @@ void	init_env(t_environment *env);
 void		ft_error(char *str);
 
 //Map stuff
-t_list	*map_interpreter(const char *path);
+t_list		*map_interpreter(const char *path, t_environment *env);
+void		map_int_array(t_list *lst, t_environment *env);
 #endif
