@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_interpreter.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/23 14:44:27 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/31 12:37:58 by no-conne         ###   ########.fr       */
+/*   Created: 2019/07/30 09:41:53 by no-conne          #+#    #+#             */
+/*   Updated: 2019/07/31 11:04:59 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <wolf3d.h>
 
-void	del(void *node, size_t n)
-{
-	(void)n;
-	free(node);
-}
-
-int		main(void)
+t_list	*map_interpreter(const char *path, t_environment *env)
 {
 	t_list	*map;
-	//int		**map_array;
-	t_environment	env;
-	init_env(&env);
-	map = map_interpreter("pepe.map", &env);
-	map_int_array(map, &env);
-	ft_lstdel(&map,del);
-	handle_hooks(env.win_ptr, &env);
-	mlx_loop(env.mlx_ptr);
-	return (0);
+	t_list	*tmp;
+	char	*line;
+	int		fd;
+
+	map = ft_lstnew(NULL, 0);
+	fd = open(path, O_RDONLY);
+	while (get_next_line(fd, &line) > 0)
+	{
+		tmp = map;
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = ft_lstnew(line, ft_strlen(line) + 1);
+		env->map_lst_size++;
+		free(line);
+	}
+	tmp = map;
+	tmp = tmp->next;
+	free(map);
+	map = tmp;
+	close(fd);
+	return (map);
 }
