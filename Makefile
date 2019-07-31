@@ -6,7 +6,7 @@
 #    By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/07/31 13:53:45 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/07/31 14:20:39 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,9 @@ fclean: clean
 
 init: destroy
 	$(LDEP)
+	curl -L https://www.libsdl.org/release/SDL2-2.0.10.tar.gz -o SDL_SOURCE.tar.gz
+	curl -L https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.4.tar.gz -o SDL_MIX.tar.gz
+	curl -L https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.15.tar.gz -o SDL_TEX.tar.gz
 	tar -xvzf SDL_SOURCE.tar.gz
 	tar -xvzf SDL_MIX.tar.gz
 	tar -xvzf SDL_TEX.tar.gz
@@ -99,6 +102,7 @@ init: destroy
 destroy: fclean
 	@rm -rf minilibx
 	@rm -rf SDL
+	@rm -rf *.tar.gz
 re: fclean all
 
 .PHONY: all fclean clean re LIBFT VECLIB init destroy 
