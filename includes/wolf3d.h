@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/08/02 12:55:21 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/02 15:55:48 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define WINDOW_HEIGHT 480
 # define TEXMAX	10
 # define MENU_ITEMS 2
+# define SOUND_MAX 3
 # define FILL_RGB(RGB, R, G, B) RGB.r = R, RGB.g = G, RGB.b = B
 # include "keydef.h"
 # include <SDL2/SDL_ttf.h>
@@ -36,6 +37,11 @@ typedef	struct			s_msg
 	SDL_Color			color;
 	char				*txt;
 }						t_msg;
+typedef struct			s_audio
+{
+	Mix_Music			*sound;
+
+}						t_audio;
 
 typedef struct			s_menu
 {
@@ -51,6 +57,7 @@ typedef struct			s_menu
 	SDL_Color			deselected;
 	t_msg				msg[MENU_ITEMS];
 	int					cur;
+	t_audio				audio;
 }			  			t_menu;
 
 typedef struct			s_texture
@@ -185,8 +192,9 @@ void				put_image(t_environment *env, t_mlx_image *img);
 char			*main_menu();
 SDL_Texture		*load_tex(char *filename, SDL_Renderer *render);
 void			sdl_font_init(t_menu *menu);
-
-
+void			audio_init();
+void			audio_set(t_menu *menu);
+void			audio_free(t_menu *menu);
 /*
 **Error Handeling
 */

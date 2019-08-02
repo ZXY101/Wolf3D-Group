@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 13:00:38 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/02 12:58:15 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/02 16:07:36 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void			sdl_init(t_menu *menu)
 	menu->render = SDL_CreateRenderer(menu->win, -1, 0);
 	if (!menu->render)
 		ft_error("Renderer cried on his way home!");
-	
+	audio_init(menu);
 	sdl_font_init(menu);
 }
 
@@ -33,6 +33,7 @@ void			sdl_exit(t_menu *menu)
 	SDL_DestroyTexture(menu->img);
 	SDL_DestroyRenderer(menu->render);
 	TTF_CloseFont(menu->font);
+	audio_free(menu);
 	SDL_Quit();
 }
 
@@ -65,26 +66,27 @@ void			menu_update(t_menu *menu, int pos_x, int pos_y ,int width, int height)
 	}
 }
 
+void	sdl_keyhndl(t_menu *menu)
+{
+	if (menu->evnt.type == SDL_QUIT || menu->evnt.key.keysym.sym == SDLK_ESCAPE)
+		menu->run = 0;
+	if (menu->evnt.key.keysym.sym == SDLK_RETURN)
+		menu->run = 2;
+	if (menu->evnt.type == SDL_KEYDOWN)
+	{
+		if (menu->evnt.key.keysym.sym == SDLK_w && menu->cur > 0)
+			menu->cur--;
+		if (menu->evnt.key.keysym.sym == SDLK_s && menu->cur < MENU_ITEMS - 1)
+			menu->cur++;
+	}
+}
+
 void			sdl_update(t_menu *menu)
 {
+
 	while (SDL_PollEvent(&menu->evnt))
-	{
-		if (menu->evnt.type == SDL_QUIT ||
-		menu->evnt.key.keysym.sym == SDLK_ESCAPE)
-			menu->run = 0;
-		if (menu->evnt.key.keysym.sym == SDLK_RETURN)
-		{
-			menu->run = 2;
-			break ;
-		}
-		if (menu->evnt.type == SDL_KEYDOWN)
-		{
-			if (menu->evnt.key.keysym.sym == SDLK_w && menu->cur > 0)
-				menu->cur--;
-			if (menu->evnt.key.keysym.sym == SDLK_s && menu->cur < MENU_ITEMS - 1)
-				menu->cur++;
-		}
-	}
+		sdl_keyhndl(menu);
+	Mix_PauseMusic();
 	SDL_RenderClear(menu->render);
 	SDL_RenderCopy(menu->render, menu->img, NULL, NULL);
 	menu_update(menu, 50,(int)(WINDOW_HEIGHT /2), 100 ,30);
@@ -97,6 +99,7 @@ char			*main_menu(void)
 
 	sdl_init(&menu);
 	menu.img = load_tex("./textures/main_menu/main.bmp", menu.render);
+	audio_set(&menu);
 	menu.run = 1;	
 	while (menu.run == 1)
 		sdl_update(&menu);

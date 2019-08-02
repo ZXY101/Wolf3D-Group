@@ -6,7 +6,7 @@
 #    By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/08/02 13:10:10 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/08/02 13:51:35 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,8 @@ SRC_NAME =	main.c \
 		    main_menu.c \
 			draw_textures.c \
 			misc.c \
-			text.c
+			text.c \
+			sound.c
 
 LIBS = -L $(LIBFT_PATH) -lft -L $(VEC_LIB_PATH) -lvec 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
