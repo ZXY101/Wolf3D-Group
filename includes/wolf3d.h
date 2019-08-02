@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <rcoetzer@42.fr>                  +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/31 19:18:26 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/02 12:55:21 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define WINDOW_LENGTH 640
 # define WINDOW_HEIGHT 480
 # define TEXMAX	10
+# define MENU_ITEMS 2
 # define FILL_RGB(RGB, R, G, B) RGB.r = R, RGB.g = G, RGB.b = B
 # include "keydef.h"
 # include <SDL2/SDL_ttf.h>
@@ -27,6 +28,15 @@
 
 typedef struct 	timeval t_timeval;
 
+typedef	struct			s_msg
+{
+	SDL_Surface			*surf;
+	SDL_Texture			*msg;
+	SDL_Rect			rect;
+	SDL_Color			color;
+	char				*txt;
+}						t_msg;
+
 typedef struct			s_menu
 {
 	SDL_Window			*win;
@@ -35,7 +45,12 @@ typedef struct			s_menu
 	SDL_Rect			rec;
 	SDL_Texture			*sprite;
 	SDL_Event			evnt;
-	int					run;		
+	int					run;
+	TTF_Font			*font;
+	SDL_Color 			selected;
+	SDL_Color			deselected;
+	t_msg				msg[MENU_ITEMS];
+	int					cur;
 }			  			t_menu;
 
 typedef struct			s_texture
@@ -168,10 +183,8 @@ void				put_image(t_environment *env, t_mlx_image *img);
 **Main_Menu And SDL (sound)
 */
 char			*main_menu();
-void			audio_construct(t_menu *menu, char *sound);
-void			sound_load(t_menu *menu);
-void			audio_destruct(t_menu *menu);
-void			sound_loop(t_menu *menu);
+SDL_Texture		*load_tex(char *filename, SDL_Renderer *render);
+void			sdl_font_init(t_menu *menu);
 
 
 /*

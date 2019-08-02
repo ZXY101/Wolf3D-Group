@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <rcoetzer@42.fr>                  +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:27 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/31 19:18:31 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/01 14:31:30 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ int		main(int ac, char **av)
 {
 	t_list			*map;
 	t_environment	env;
+	Uint8			*dst = NULL;
+	Uint32			len = 0;
+	SDL_MixAudio(dst, dst, len, 30);
 	char			*file;
 	
 	if (ac > 2 || ac < 1)
