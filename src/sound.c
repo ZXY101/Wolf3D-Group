@@ -1,25 +1,31 @@
 #include <wolf3d.h>
-
-void	audio_init()
-{
 	
+void	sdl_audio_init()
+{
 	if (SDL_Init(SDL_INIT_AUDIO) < 0)
-		ft_error("Auidio Device init Problem");
-	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
-		ft_error("could not init Audio mixer");
+ 		ft_error("Could not init SDL!");
+	if(Mix_OpenAudio(8000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 512)==-1)
+     	ft_error("Could not open audio device!");
 }
 
-
-void	audio_set(t_menu *menu)
+void	play_audio_effect(t_menu *menu, char *wav)
 {
-	menu->audio.sound = Mix_LoadMUS("./sounds/loop.mp3");
+	menu->audio.wave = Mix_LoadWAV(wav);
+ 	if (menu->audio.wave == NULL)
+ 		ft_error("Could not load wav file!");
+	if (Mix_PlayChannel(1, menu->audio.wave, 0) == -1 )
+ 		ft_error("could not play wave");
+	Mix_FreeChunk(menu->audio.wave);
+}
+
+void	play_music(t_menu *menu, char *wav)
+{
+ 		menu->audio.music = Mix_LoadMUS(wav);
 	if (!Mix_PlayingMusic())
-		Mix_PlayMusic(menu->audio.sound , -1);
-}
-
-void	audio_free(t_menu *menu)
-{
-	Mix_FreeMusic(menu->audio.sound);
-	Mix_CloseAudio();
-	SDL_Quit();
+	{
+		if (!menu->audio.music) 
+			ft_error("Could not load music");
+		if ( Mix_PlayMusic(menu->audio.music, -1) == -1 )
+			ft_error("Could not play music");
+	}
 }

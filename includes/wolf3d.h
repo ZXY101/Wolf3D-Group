@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/08/02 15:55:48 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/04 21:53:37 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ typedef	struct			s_msg
 }						t_msg;
 typedef struct			s_audio
 {
-	Mix_Music			*sound;
-
+	Mix_Chunk			*wave;
+ 	Mix_Music			*music;
 }						t_audio;
 
 typedef struct			s_menu
@@ -149,6 +149,7 @@ typedef struct		s_environment
 	double			rot_speed;
 	t_ray_data		rd;
 	t_tex_data		td;
+	t_menu			*menu;
 	int				map_lst_size;
 }					t_environment;
 
@@ -192,9 +193,6 @@ void				put_image(t_environment *env, t_mlx_image *img);
 char			*main_menu();
 SDL_Texture		*load_tex(char *filename, SDL_Renderer *render);
 void			sdl_font_init(t_menu *menu);
-void			audio_init();
-void			audio_set(t_menu *menu);
-void			audio_free(t_menu *menu);
 /*
 **Error Handeling
 */
@@ -225,4 +223,14 @@ void				initialise_vars(t_environment *env, int x);
 void				calc_step_sd(t_environment *env);
 void				exec_dda(t_environment *env);
 void				calc_lh_wd(t_environment *env);
+
+void				play_music(t_menu *menu, char *wav);
+void				sdl_audio_init();
+void				play_audio_effect(t_menu *menu, char *wav);
+void			sdl_init(t_menu *menu);
+void			sdl_exit(t_menu *menu);
+void			menu_update(t_menu *menu, int pos_x, int pos_y ,int width, int height);
+void	sdl_keyhndl(t_menu *menu);
+void			sdl_update(t_menu *menu);
+char			*main_menu(void);
 #endif

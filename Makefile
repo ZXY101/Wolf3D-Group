@@ -6,9 +6,12 @@
 #    By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/08/02 13:51:35 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/08/04 21:37:21 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+#sudo apt-get install libfreetype6-dev make gcc pkg-config \
+ libx11-dev libxext-dev libasound2-dev libpulse-dev
 
 NAME = wolf3d
 
@@ -18,7 +21,7 @@ VEC_LIB_PATH = ./libvec/
 SRC_PATH = ./src/
 
 SDL_LOC = $(CURDIR)/SDL
-SDL_CONF = $(SDL_LOC)/lib/pkgconfig/
+SDL_PKG_CONFG = $(SDL_LOC)/lib/pkgconfig/
 SDL_SRC=SDL2-2.0.10
 SDL_MIX_SRC=SDL2_mixer-2.0.4
 SDL_TTF_SRC=SDL2_ttf-2.0.15
@@ -27,14 +30,15 @@ LIBS=
 
 INCLUDES_PATH = ./includes/
 UNAME_S := $(shell uname -s)
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g
 
 INCLUDES =	-I $(LIBFT_PATH)/includes \
 			-I $(VEC_LIB_PATH)/includes \
 			-I $(INCLUDES_PATH) \
-			-I $(SDL_LOC)/include
+			-I $(SDL_LOC)/include \
+			-I $(MLX_PATH)
 
-MLX_PATH = ./MinilibX/
+MLX_PATH = ./MinilibX
 
 SRC_NAME =	main.c \
 			images.c \
@@ -57,28 +61,22 @@ SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 SRCO = $(patsubst %.c, %.o, $(SRC))
 
 ifeq ($(UNAME_S),Linux)
-	MLX_FLAGS = minilibx/libmlx.a -lXext -lX11 -lm
-	LIBS += $(shell export PKG_CONFIG_PATH=$(SDL_CONF); pkg-config --cflags --libs sdl2 SDL2_ttf SDL2_mixer)
+	MLX_FLAGS = $(MLX_PATH)/libmlx.a -lXext -lX11 -lm
+	LIBS += $(shell export PKG_CONFIG_PATH=$(SDL_PKG_CONFG); pkg-config --cflags --libs sdl2 SDL2_ttf SDL2_mixer)
 endif
 ifeq ($(UNAME_S),Darwin)
 	MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit -lm
 	LIBS += $(shell export PKG_CONFIG_PATH=$(SDL_CONF); pkg-config --cflags --libs sdl2 SDL2_ttf SDL2_mixer)
 endif
 
-all: LIBFT VECLIB $(NAME) 
-
-LIBFT:
-	@make -C $(LIBFT_PATH)
-
-VECLIB:
-	@make -C $(VEC_LIB_PATH)
-
+all: $(LIBFT_PATH) $(VEC_LIB_PATH) $(NAME) 
 
 $(LIBFT_PATH)libft.a:
 	@make -C $(LIBFT_PATH)
 
 $(VEC_LIB_PATH)libvec.a:
 	@make -C $(VEC_LIB_PATH)
+
 $(NAME): $(SRCO) $(LIBFT_PATH)libft.a $(VEC_LIB_PATH)libvec.a
 	@gcc $(FLAGS) $(SRCO) $(LIBS) -o $(NAME) $(MLX_FLAGS)
 	@printf "\e[32mBinary \e[1;32m$(NAME)\e[1;0m\e[32m Created.\e[0m\n"
@@ -97,12 +95,12 @@ fclean: clean
 	@/bin/rm -rf $(NAME)
 	@printf "\e[31mBin \e[1;31m$(NAME)\e[1;0m\e[31m Removed.\e[0m\n"
 
-SDL: $(SDL_SRC) minilibx $(SDL_TTF_SRC) $(SDL_MIX_SRC)
+SDL: $(SDL_SRC) $(MLX_PATH) $(SDL_TTF_SRC) $(SDL_MIX_SRC)
 	@make
 	@rm -rf SDL2*
 
 destroy: fclean
-	@rm -rf minilibx
+	@rm -rf $(MLX_PATH)
 	@rm -rf SDL*
 	@rm -rf *.tar.gz
 
@@ -124,8 +122,8 @@ $(SDL_SRC):
 	mkdir -p $(SDL_SRC)/build
 	cd $(SDL_SRC)/build; ../configure --prefix=$(SDL_LOC); make install;
 
-minilibx:
-	@git clone https://github.com/Rubzy0422/minilibx minilibx;make -C minilibx
+$(MLX_PATH):
+	@git clone https://github.com/Rubzy0422/minilibx $(MLX_PATH);make -C $(MLX_PATH)
 
 Brew:
 	curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
