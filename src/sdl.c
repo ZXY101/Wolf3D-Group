@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sdl.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 09:16:25 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/05 11:10:18 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/05 12:52:33 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void		sdl_exit(t_menu *menu)
 	sdl_audio_exit(menu);
 }
 
-void	sdl_audio_exit(t_menu *menu)
+void		sdl_audio_exit(t_menu *menu)
 {
 	Mix_FreeMusic(menu->audio.music);
 	Mix_CloseAudio();

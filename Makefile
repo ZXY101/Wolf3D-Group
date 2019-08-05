@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+         #
+#    By: stenner <stenner@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/08/05 09:16:57 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/08/05 13:28:32 by stenner          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,6 @@ SRC_NAME =	main.c \
 			handle_hooks.c \
 			textures.c \
 			map_interpreter.c \
-			map_split.c \
 			keys.c \
 			render_rays.c \
 		    main_menu.c \

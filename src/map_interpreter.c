@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_interpreter.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 09:41:53 by no-conne          #+#    #+#             */
-/*   Updated: 2019/08/05 11:30:41 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/08/05 12:58:54 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,33 @@ t_list	*map_interpreter(const char *path, t_environment *env)
 	checks(map);
 	close(fd);
 	return (map);
+}
+
+void	map_int_array(t_list *lst, t_environment *env)
+{
+	int		i;
+	int		c;
+	char	**map_data;
+
+	i = 0;
+	if (!(env->map = (int **)malloc(sizeof(int *) * env->map_lst_size)))
+		exit(0);
+	while (i < env->map_lst_size)
+	{
+		c = 0;
+		if (!(env->map[i] = (int *)malloc(sizeof(int) *
+		(int)(lst->content_size / 2))))
+			exit(0);
+		map_data = ft_strsplit(lst->content, ' ');
+		while (c < (int)(lst->content_size / 2))
+		{
+			env->map[i][c] = ft_atoi(map_data[c]);
+			free(map_data[c]);
+			c++;
+		}
+		free(map_data);
+		i++;
+		if (lst->next != NULL)
+			lst = lst->next;
+	}
 }

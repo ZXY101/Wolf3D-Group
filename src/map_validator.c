@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validator.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 11:18:37 by no-conne          #+#    #+#             */
-/*   Updated: 2019/08/05 11:33:13 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/08/05 12:52:10 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 void	check1(int fd)
 {
 	if (fd < 0)
-	{
-		ft_putstr("Could not acces map\n");
-		exit(0);
-	}
+		ft_error("Could not acces map.");
 }
 
 void	check2(t_list *map)
@@ -27,17 +24,11 @@ void	check2(t_list *map)
 
 	tmp_map = map;
 	if (ft_strchr(tmp_map->content, '0'))
-	{
-		ft_putstr("invalid map, first row cannot have a 0 in it\n");
-		exit(0);
-	}
+		ft_error("Invalid map, first row cannot have a 0 in it.");
 	while (tmp_map->next != NULL)
 		tmp_map = tmp_map->next;
 	if (ft_strchr(tmp_map->content, '0'))
-	{
-		ft_putstr("invalid map, last row cannot have a 0 in it\n");
-		exit(0);
-	}
+		ft_error("Invalid map, last row cannot have a 0 in it.");
 }
 
 void	check3(t_list *map)
@@ -48,10 +39,7 @@ void	check3(t_list *map)
 	{
 		c_content = map->content;
 		if (c_content[0] == '0' || c_content[map->content_size - 2] == '0')
-		{
-			ft_putstr("Invalid map, border cannot contain 0\n");
-			exit(0);
-		}
+			ft_error("Invalid map, border cannot contain 0.");
 		map = map->next;
 	}
 }
@@ -74,10 +62,7 @@ void	check4(t_list *map)
 			while (diff-- != 0)
 			{
 				if (c_content[map->content_size - diff] == '0')
-				{
-					ft_putstr("Invalid map, 0's must be surrounded by 8's\n");
-					exit(0);
-				}
+					ft_error("Invalid map, 0's must be surrounded by nums.");
 			}
 		}
 		map = map->next;

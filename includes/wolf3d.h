@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/08/05 11:20:43 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/08/05 13:12:42 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,22 @@ typedef struct			s_tex_data
 	int					tex_y;
 	int					d;
 	unsigned int		colour;
+	t_vector			fw;
 }						t_tex_data;
+
+typedef struct			s_floor_data
+{
+	int					y;
+	double				dist_wall;
+	double				dist_player;
+	double				cd;
+	double				weight;
+	t_vector			cf;
+	int					ft_x;
+	int					ft_y;
+	int					colour;
+	int					colour2;
+}						t_floor_data;
 
 typedef struct			s_mlx_image
 {
@@ -187,12 +202,6 @@ void					init_image(t_environment *env, t_mlx_image *img,
 						int width, int height);
 void					put_image(t_environment *env, t_mlx_image *img);
 
-/*
-**Main_Menu And SDL (sound)
-*/
-char					*main_menu();
-SDL_Texture				*load_tex(char *filename, SDL_Renderer *render);
-void					sdl_font_init(t_menu *menu);
 
 /*
 **Error Handeling
@@ -201,7 +210,6 @@ void					sdl_font_init(t_menu *menu);
 void					ft_init_tex(t_environment *env);
 void					ft_validate_tex(t_environment *env);
 void					ft_load_tex(t_environment *env);
-void					update_dt(t_environment *env);
 void					calc_textures(t_environment *env);
 void					draw_walls(t_environment *env, int x);
 void					draw_floor(t_environment *env, int x);
@@ -210,22 +218,23 @@ void					draw_floor(t_environment *env, int x);
 **Misc
 */
 
-void				init_env(t_environment *env);
+void					update_dt(t_environment *env);
+void					init_env(t_environment *env);
+void					ft_error(char *str);
+void					printf_fps(t_environment *env);
 
 /*
 **Map Stuff
 */
 
-t_list		*map_interpreter(const char *path, t_environment *env);
-void		  map_int_array(t_list *lst, t_environment *env);
-void				ft_error(char *str);
-void				printf_fps(t_environment *env);
-void				check1(int fd);
-void				check2(t_list *map);
-void				check3(t_list *map);
-void				check4(t_list *map);
-void					init_env(t_environment *env);
+t_list					*map_interpreter(const char *path, t_environment *env);
+void		  			map_int_array(t_list *lst, t_environment *env);
 void					ft_error(char *str);
+void					check1(int fd);
+void					check2(t_list *map);
+void					check3(t_list *map);
+void					check4(t_list *map);
+void					init_env(t_environment *env);
 void					printf_fps(t_environment *env);
 
 /*
@@ -237,6 +246,13 @@ void					calc_step_sd(t_environment *env);
 void					exec_dda(t_environment *env);
 void					calc_lh_wd(t_environment *env);
 
+/*
+**Main_Menu And SDL (sound)
+*/
+
+char					*main_menu();
+SDL_Texture				*load_tex(char *filename, SDL_Renderer *render);
+void					sdl_font_init(t_menu *menu);
 void					play_music(t_menu *menu, char *wav);
 void					sdl_audio_init();
 void					play_audio_effect(t_menu *menu, char *wav);
