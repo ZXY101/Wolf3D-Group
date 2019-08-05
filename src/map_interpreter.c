@@ -65,6 +65,11 @@ void	map_int_array(t_list *lst, t_environment *env)
 		map_data = ft_strsplit(lst->content, ' ');
 		while (c < (int)(lst->content_size / 2))
 		{
+			if (map_data[c][0] == 'x')
+			{
+				env->pos.x = i + 0.5;
+				env->pos.y = c + 0.5;
+			}
 			env->map[i][c] = ft_atoi(map_data[c]);
 			free(map_data[c]);
 			c++;

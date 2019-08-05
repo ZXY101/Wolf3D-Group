@@ -21,8 +21,8 @@ void		init_env(t_environment *env)
 	env->win_ptr = mlx_new_window(env->mlx_ptr, WINDOW_LENGTH, WINDOW_HEIGHT,
 	"wolf3d");
 	init_image(env, &env->img, WINDOW_LENGTH, WINDOW_HEIGHT);
-	env->pos.x = 3;
-	env->pos.y = 4.5;
+	env->pos.x = 1.5;
+	env->pos.y = 1.5;
 	env->dir.x = -1;
 	env->dir.y = 0;
 	env->plane.x = 0;

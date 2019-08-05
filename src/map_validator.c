@@ -15,7 +15,7 @@
 void	check1(int fd)
 {
 	if (fd < 0)
-		ft_error("Could not acces map.");
+		ft_error("Could not access map.");
 }
 
 void	check2(t_list *map)
@@ -49,6 +49,7 @@ void	check4(t_list *map)
 	char	*c_content;
 	char	*c_content2;
 	int		diff;
+	(void)c_content2;
 	t_list	*map2;
 
 	map2 = map->next;

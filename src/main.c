@@ -27,6 +27,8 @@ int		main(int ac, char **av)
 	if (ac > 2 || ac < 1)
 		ft_error("Usage ./Wolf3d <map>");
 	file = (ac > 1) ? av[1] : main_menu();
+	if (!ft_strstr(file, ".map\0"))
+		ft_error("Invalid map!");
 	init_env(&env);
 	map = map_interpreter(file, &env);
 	map_int_array(map, &env);
