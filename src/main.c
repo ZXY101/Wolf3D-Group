@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:27 by stenner           #+#    #+#             */
-/*   Updated: 2019/08/05 08:57:47 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/08/05 13:02:48 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,3 @@ int		main(int ac, char **av)
 	sdl_audio_exit(&env.menu);
 	return (0);
 }
-

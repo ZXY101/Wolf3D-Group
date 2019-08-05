@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sound.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 09:10:46 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/05 11:06:31 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/05 12:53:15 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sdl_audio_init(void)
 {
 	SDL_Init(SDL_INIT_AUDIO);
-	if (Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0)
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
 		ft_error("Could not open audio device!");
 }
 

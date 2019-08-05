@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_hooks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 11:59:01 by stenner           #+#    #+#             */
-/*   Updated: 2019/08/05 11:31:28 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/05 12:53:05 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int			fun(t_environment *env)
 	printf_fps(env);
 	movement(env);
 	rotation(env);
-	play_music(&env->menu , "sounds/loop.wav");
+	play_music(&env->menu, "sounds/loop.wav");
 	return (0);
 }
 
