@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 09:10:46 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/05 09:14:47 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/05 11:06:31 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	sdl_audio_init(void)
 {
-	if (Mix_OpenAudio(8000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS,
-	512) == -1)
+	SDL_Init(SDL_INIT_AUDIO);
+	if (Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0)
 		ft_error("Could not open audio device!");
 }
 
@@ -31,7 +31,7 @@ void	play_audio_effect(t_menu *menu, char *wav)
 
 void	play_music(t_menu *menu, char *wav)
 {
-	if (!Mix_PlayingMusic() && menu->run == 1)
+	if (!Mix_PlayingMusic())
 	{
 		menu->audio.music = Mix_LoadMUS(wav);
 		if (!menu->audio.music)

@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/08/05 09:41:50 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/05 11:18:56 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ typedef struct			s_environment
 	double				rot_speed;
 	t_ray_data			rd;
 	t_tex_data			td;
-	t_menu				*menu;
+	t_menu				menu;
 	int					map_lst_size;
 }						t_environment;
 
@@ -234,5 +234,6 @@ void					sdl_exit(t_menu *menu);
 void					menu_update(t_menu *menu);
 void					sdl_keyhndl(t_menu *menu);
 void					sdl_update(t_menu *menu);
+void					sdl_audio_exit(t_menu *menu);
 char					*main_menu(void);
 #endif

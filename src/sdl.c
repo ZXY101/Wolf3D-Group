@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 09:16:25 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/05 09:17:35 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/05 11:10:18 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		sdl_init(t_menu *menu)
 {
 	menu->cur = 0;
-	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
+	SDL_Init(SDL_INIT_VIDEO);
 	menu->win = SDL_CreateWindow("MENU", SDL_WINDOWPOS_CENTERED,
 	SDL_WINDOWPOS_CENTERED, WINDOW_LENGTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
 	if (!menu->win)
@@ -31,10 +31,15 @@ void		sdl_exit(t_menu *menu)
 {
 	SDL_DestroyTexture(menu->img);
 	SDL_DestroyRenderer(menu->render);
-	Mix_FreeMusic(menu->audio.music);
-	Mix_CloseAudio();
 	TTF_CloseFont(menu->font);
 	SDL_DestroyWindow(menu->win);
+	sdl_audio_exit(menu);
+}
+
+void	sdl_audio_exit(t_menu *menu)
+{
+	Mix_FreeMusic(menu->audio.music);
+	Mix_CloseAudio();
+	Mix_Quit();
 	SDL_Quit();
-	(void)menu;
 }
