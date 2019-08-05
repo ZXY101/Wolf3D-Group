@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreachs.c                                      :+:      :+:    :+:   */
+/*   ft_del.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/11 13:25:13 by stenner           #+#    #+#             */
-/*   Updated: 2019/06/11 13:27:27 by stenner          ###   ########.fr       */
+/*   Created: 2019/06/20 08:39:46 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/06/21 07:27:03 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-void	ft_foreachs(char *arr, size_t n, void (*f)(char))
+void	ft_del(void *lst, size_t n)
 {
-	size_t i;
-
-	i = 0;
-	while (i < n)
+	(void)n;
+	if (lst)
 	{
-		f(arr[i]);
-		i++;
+		free(lst);
+		lst = NULL;
 	}
 }

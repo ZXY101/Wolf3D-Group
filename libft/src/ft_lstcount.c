@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreachi.c                                      :+:      :+:    :+:   */
+/*   ft_lstcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/11 12:41:14 by stenner           #+#    #+#             */
-/*   Updated: 2019/06/11 13:28:51 by stenner          ###   ########.fr       */
+/*   Created: 2019/06/18 09:12:43 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/06/20 14:31:47 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-void	ft_foreachi(int *arr, size_t n, void (*f)(int))
+unsigned int	ft_lstcount(t_list *lst)
 {
-	size_t i;
+	unsigned int	i;
 
 	i = 0;
-	while (i < n)
+	if (!lst)
+		return (0);
+	while (lst)
 	{
-		f(arr[i]);
+		lst = lst->next;
 		i++;
 	}
+	return (i);
 }

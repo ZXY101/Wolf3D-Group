@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_hooks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <rcoetzer@42.fr>                  +#+  +:+       +#+        */
+/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 11:59:01 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/31 19:18:14 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/05 12:53:05 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,23 @@ static int	finish(void *none)
 	exit(0);
 }
 
-int		key_down(int key, t_environment *env)
+int			key_down(int key, t_environment *env)
 {
-	
 	if (key == MLX_ESC)
 		exit(0);
 	env->keys[key] = 1;
 	return (0);
 }
 
-int		key_release(int key, t_environment *env)
+int			key_release(int key, t_environment *env)
 {
 	env->keys[key] = 0;
 	return (0);
 }
 
-int		fun(t_environment *env)
+int			fun(t_environment *env)
 {
-	int x;	
+	int x;
 
 	clear_image(&env->img, rgbtoi(0, 0, 0));
 	update_dt(env);
@@ -63,6 +62,7 @@ int		fun(t_environment *env)
 	printf_fps(env);
 	movement(env);
 	rotation(env);
+	play_music(&env->menu, "sounds/loop.wav");
 	return (0);
 }
 

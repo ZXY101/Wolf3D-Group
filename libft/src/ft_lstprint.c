@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprime.c                                       :+:      :+:    :+:   */
+/*   ft_lstprint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/11 12:31:17 by stenner           #+#    #+#             */
-/*   Updated: 2019/06/11 12:33:39 by stenner          ###   ########.fr       */
+/*   Created: 2019/06/04 21:20:58 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/06/20 11:59:09 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isprime(long num)
-{
-	long i;
+#include "libft.h"
 
-	if (num == 0 || num == 1)
-		return (0);
-	i = 2;
-	while (i < num)
+void	ft_lstprint(t_list *lst)
+{
+	while (lst)
 	{
-		if (num % i == 0)
-			return (0);
-		i++;
+		ft_putstr(lst->content);
+		ft_putchar('\n');
+		lst = lst->next;
 	}
-	return (1);
 }

@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_power.c                                         :+:      :+:    :+:   */
+/*   ft_hyperbole.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/11 15:03:47 by stenner           #+#    #+#             */
-/*   Updated: 2019/06/11 15:52:15 by stenner          ###   ########.fr       */
+/*   Created: 2019/07/04 07:43:45 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/07/04 08:13:36 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
-#include <stdio.h>
+#include "libft.h"
+#include <math.h>
 
-long	ft_power(long base, long exp)
+double	ft_hyperbole(double x, double exp, double div)
 {
-	long i;
-	long result;
-
-	i = 0;
-	result = 1;
-	if (!(exp >= 0))
+	if (div == 0 || !x || !exp || !div)
 		return (0);
-	if (exp == 0)
-		return (1);
-	while (i < exp)
-	{
-		result = result * base;
-		i++;
-	}
-	return (result);
+	return (pow(x, exp) / div);
 }

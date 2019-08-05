@@ -6,11 +6,11 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 11:35:51 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/15 17:01:31 by stenner          ###   ########.fr       */
+/*   Updated: 2019/08/03 09:42:39 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libvec.h"
+#include <libvec.h>
 
 t_matrix	matrix_make_identity(void)
 {

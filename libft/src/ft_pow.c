@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: event <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/11 14:17:01 by stenner           #+#    #+#             */
-/*   Updated: 2019/06/26 15:46:38 by stenner          ###   ########.fr       */
+/*   Created: 2019/06/04 11:14:44 by event             #+#    #+#             */
+/*   Updated: 2019/07/04 08:20:44 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-long	ft_sqrt(long num)
+int		ft_pow(int x, int y)
 {
-	long i;
+	int	tmp;
 
-	if (num < 0)
-		return (0);
-	i = 1;
-	while ((i * i) <= num)
-	{
-		if ((i * i) == num)
-			return (i);
-		i++;
-	}
-	return (0);
+	if (y == 0)
+		return (1);
+	tmp = ft_pow(x, y / 2);
+	if (y % 2 == 0)
+		return (tmp * tmp);
+	else
+		return (x * tmp * tmp);
 }

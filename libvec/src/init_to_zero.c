@@ -6,11 +6,11 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 13:23:10 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/17 12:15:13 by stenner          ###   ########.fr       */
+/*   Updated: 2019/08/03 09:43:01 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libvec.h"
+#include <libvec.h>
 
 void	init_to_zero(t_matrix *m)
 {

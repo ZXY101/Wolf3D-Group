@@ -3,27 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 13:07:02 by stenner           #+#    #+#             */
-/*   Updated: 2019/05/23 09:56:21 by stenner          ###   ########.fr       */
+/*   Created: 2019/05/20 13:27:42 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/06/07 10:00:09 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int		ft_strcmp(const char *s1, const char *s2)
 {
-	int					i;
-	unsigned const char *s1u;
-	unsigned const char *s2u;
+	int		i;
+	int		sz1;
+	int		sz2;
 
-	s1u = (unsigned const char *)s1;
-	s2u = (unsigned const char *)s2;
-	i = 0;
-	while (s1u[i] != '\0' && s2u[i] != '\0')
-	{
-		if (s1u[i] != s2u[i])
-			break ;
-		i++;
-	}
-	return (s1u[i] - s2u[i]);
+	if (s1 == NULL && s2 == NULL)
+		return (0);
+	sz2 = ft_strlen(s1);
+	sz1 = ft_strlen(s2);
+	if (sz1 >= sz2)
+		i = sz1;
+	else
+		i = sz2;
+	return (ft_memcmp(s1, s2, i));
 }
