@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/08/05 13:12:42 by stenner          ###   ########.fr       */
+/*   Updated: 2019/08/05 13:42:40 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,7 +202,6 @@ void					init_image(t_environment *env, t_mlx_image *img,
 						int width, int height);
 void					put_image(t_environment *env, t_mlx_image *img);
 
-
 /*
 **Error Handeling
 */
@@ -228,7 +227,7 @@ void					printf_fps(t_environment *env);
 */
 
 t_list					*map_interpreter(const char *path, t_environment *env);
-void		  			map_int_array(t_list *lst, t_environment *env);
+void					map_int_array(t_list *lst, t_environment *env);
 void					ft_error(char *str);
 void					check1(int fd);
 void					check2(t_list *map);
