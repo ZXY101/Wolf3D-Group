@@ -6,7 +6,7 @@
 #    By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/08/05 07:28:26 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/08/05 08:29:23 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,12 @@ endif
 
 all: $(LIBFT_PATH) $(VEC_LIB_PATH) $(NAME) 
 
+$(LIBFT_PATH):
+	@git clone https://github.com/Rubzy0422/libft.git $(LIBFT_PATH)
+
+$(VEC_LIB_PATH):
+	@git clone https://github.com/Rubzy0422/libvec.git $(VEC_LIB_PATH)
+	
 $(LIBFT_PATH)libft.a:
 	@make -C $(LIBFT_PATH)
 
