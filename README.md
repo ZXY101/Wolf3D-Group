@@ -1,6 +1,6 @@
 Wolf-3D
 
-Wolf-3D is a group project made by zxy101, Rubzy0422 and Nick-OC97.
+Wolf-3D is a group project made by ZXY101 (Shaun Tenner), Rubzy0422 and Nick-OC97.
 
 compiling Wolf is always fun ..
 if you are running a linux system make sure you have these dependencies installed
