@@ -6,11 +6,11 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 14:50:12 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/10 13:04:23 by stenner          ###   ########.fr       */
+/*   Updated: 2019/08/03 09:44:37 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libvec.h"
+#include <libvec.h>
 
 t_vector	vector_divide(t_vector v, double k)
 {

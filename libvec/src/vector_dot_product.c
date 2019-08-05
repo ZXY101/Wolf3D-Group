@@ -6,11 +6,11 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 10:54:29 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/10 13:04:23 by stenner          ###   ########.fr       */
+/*   Updated: 2019/08/03 09:46:26 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libvec.h"
+#include <libvec.h>
 
 double	vector_dot_product(t_vector v1, t_vector v2)
 {

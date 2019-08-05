@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 12:21:47 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/02 12:37:27 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/05 09:10:25 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void			sdl_font_init(t_menu *menu)
 {
 	TTF_Init();
 	menu->font = TTF_OpenFont("./fonts/Menu.ttf", 20);
-	FILL_RGB(menu->selected, 255,230,230);
-	FILL_RGB(menu->deselected, 255,0,0);
+	FILL_RGB(menu->selected, 255, 230, 230);
+	FILL_RGB(menu->deselected, 255, 0, 0);
 	menu->deselected.a = 80;
 	menu->selected.a = 255;
 }

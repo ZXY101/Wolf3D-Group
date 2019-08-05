@@ -29,10 +29,12 @@ int		main(int ac, char **av)
 	file = (ac > 1) ? av[1] : main_menu();
 	init_env(&env);
 	map = map_interpreter(file, &env);
- 	map_int_array(map, &env);
-	ft_lstdel(&map,del);
+	map_int_array(map, &env);
+	ft_lstdel(&map, del);
+	sdl_audio_init();
 	handle_hooks(env.win_ptr, &env);
 	mlx_loop(env.mlx_ptr);
+	sdl_audio_exit(&env.menu);
 	return (0);
 }
 

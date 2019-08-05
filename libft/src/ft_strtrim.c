@@ -3,37 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/28 13:55:36 by stenner           #+#    #+#             */
-/*   Updated: 2019/05/31 11:59:29 by stenner          ###   ########.fr       */
+/*   Created: 2019/05/26 07:56:14 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/06/07 10:34:01 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 char	*ft_strtrim(char const *s)
 {
-	int		i;
-	int		len;
-	int		size;
-	char	*str;
+	size_t	min;
+	size_t	max;
+	size_t	len;
 
 	if (!s)
 		return (NULL);
-	i = 0;
-	len = ft_strlen(s);
-	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-		i++;
-	while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t' || s[len] == '\0')
-		len--;
-	if (len > 0)
-		size = (len - i) + 1;
-	else
-		size = 0;
-	if (!(str = (char *)malloc(sizeof(char) * (size + 1))))
-		return (NULL);
-	ft_memcpy(str, s + i, (size_t)size);
-	str[size] = '\0';
-	return (str);
+	min = 0;
+	while (s[min] && (s[min] == ' ' || s[min] == '\n' || s[min] == '\t'))
+		min++;
+	max = ft_strlen(s);
+	while (min < max && (s[max - 1] == ' ' || s[max - 1] == '\n' ||
+				s[max - 1] == '\t'))
+		max--;
+	if (min == max)
+		return (ft_strnew(1));
+	len = max - min;
+	return (ft_strsub(s, min, len));
 }

@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_wordc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 09:27:56 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/05/27 11:30:24 by rcoetzer         ###   ########.fr       */
+/*   Created: 2019/06/18 08:16:31 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/08/05 09:45:46 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+unsigned int	ft_wordc(char *str)
 {
-	if (n == -2147483648)
-		ft_putstr("-2147483648");
-	else
-	{
-		if (n < 0)
+	int				iswrd;
+	unsigned int	wordc;
+
+	iswrd = 0;
+	wordc = 0;
+	if (str)
+		while (*str != '\0')
 		{
-			ft_putchar('-');
-			n *= -1;
+			if (iswrd == 0 && *str > ' ')
+			{
+				iswrd = 1;
+				wordc++;
+			}
+			if (*str <= ' ' && iswrd == 1)
+				iswrd = 0;
+			str++;
 		}
-		if (n >= 10)
-			ft_putnbr(n / 10);
-		ft_putchar((n % 10) + '0');
-	}
+	return (wordc);
 }

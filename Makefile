@@ -6,7 +6,7 @@
 #    By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/08/05 11:19:36 by no-conne         ###   ########.fr        #
+#    Updated: 2019/08/05 09:16:57 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,8 +54,9 @@ SRC_NAME =	main.c \
 			draw_textures.c \
 			misc.c \
 			text.c \
-			sound.c \
 			map_validator.c \
+			sdl.c \
+			sound.c
 
 LIBS = -L $(LIBFT_PATH) -lft -L $(VEC_LIB_PATH) -lvec 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
@@ -72,6 +73,12 @@ endif
 
 all: $(LIBFT_PATH) $(VEC_LIB_PATH) $(NAME) 
 
+$(LIBFT_PATH):
+	@git clone https://github.com/Rubzy0422/libft.git $(LIBFT_PATH)
+
+$(VEC_LIB_PATH):
+	@git clone https://github.com/Rubzy0422/libvec.git $(VEC_LIB_PATH)
+	
 $(LIBFT_PATH)libft.a:
 	@make -C $(LIBFT_PATH)
 

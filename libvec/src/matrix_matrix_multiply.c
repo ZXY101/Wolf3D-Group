@@ -6,11 +6,11 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 14:58:32 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/17 12:22:35 by stenner          ###   ########.fr       */
+/*   Updated: 2019/08/03 09:43:36 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libvec.h"
+#include <libvec.h>
 
 t_matrix	matrix_matrix_multiply(t_matrix m1, t_matrix m2)
 {

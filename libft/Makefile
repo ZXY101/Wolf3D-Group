@@ -3,109 +3,144 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: stenner <stenner@student.42.fr>            +#+  +:+       +#+         #
+#    By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/05/17 13:35:09 by stenner           #+#    #+#              #
-#    Updated: 2019/07/31 19:01:19 by rcoetzer         ###   ########.fr        #
+#    Created: 2019/05/29 07:34:13 by rcoetzer          #+#    #+#              #
+#    Updated: 2019/08/03 18:13:20 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-
-SRC_PATH = ./src/
-
-SRC_NAME = ft_atoi.c \
-		ft_bzero.c \
-		ft_isalnum.c \
-		ft_isalpha.c \
-		ft_isascii.c \
-		ft_isdigit.c \
-		ft_isprint.c \
-		ft_itoa.c \
-		ft_lstadd.c \
-		ft_lstdel.c \
-		ft_lstdelone.c \
-		ft_lstiter.c \
-		ft_lstmap.c \
-		ft_lstnew.c \
-		ft_memalloc.c \
-		ft_memccpy.c \
-		ft_memchr.c \
-		ft_memcmp.c \
-		ft_memcpy.c \
-		ft_memdel.c \
-		ft_memmove.c \
-		ft_memset.c \
-		ft_numlen.c \
-		ft_putchar.c \
-		ft_putchar_fd.c \
-		ft_putendl.c \
-		ft_putendl_fd.c \
-		ft_putnbr.c \
-		ft_putnbr_fd.c \
-		ft_putstr.c \
-		ft_putstr_fd.c \
-		ft_strcat.c \
-		ft_strchr.c \
-		ft_strclr.c \
-		ft_strcmp.c \
-		ft_strcpy.c \
-		ft_strdel.c \
-		ft_strdup.c \
-		ft_strequ.c \
-		ft_striter.c \
-		ft_striteri.c \
-		ft_strjoin.c \
-		ft_strlcat.c \
-		ft_strlen.c \
-		ft_strmap.c \
-		ft_strmapi.c \
-		ft_strncat.c \
-		ft_strncmp.c \
-		ft_strncpy.c \
-		ft_strnequ.c \
-		ft_strnew.c \
-		ft_strnstr.c \
-		ft_strrchr.c \
-		ft_strsplit.c \
-		ft_strstr.c \
-		ft_strsub.c \
-		ft_strtrim.c \
-		ft_tolower.c \
-		ft_toupper.c \
-		ft_isprime.c \
-		ft_foreachi.c \
-		ft_foreachs.c \
-		ft_factorial.c \
-		ft_sqrt.c \
-		ft_power.c \
-		get_next_line.c \
-		ft_swap.c \
-		ft_strjoin_free.c
-
-SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
-
-SRCO = $(patsubst %.c, %.o, $(SRC))
-
 FLAGS = -Wall -Werror -Wextra
+CC= gcc
+SRC = ft_memset.c\
+	ft_bzero.c\
+	ft_memcpy.c\
+	ft_memccpy.c\
+	ft_memmove.c\
+	ft_memchr.c\
+	ft_memcmp.c\
+	ft_strlen.c\
+	ft_strdup.c\
+	ft_strcpy.c\
+	ft_strncpy.c\
+	ft_strcat.c\
+	ft_strncat.c\
+	ft_strlcat.c\
+	ft_strchr.c\
+	ft_strrchr.c\
+	ft_strstr.c\
+	ft_strnstr.c\
+	ft_strcmp.c\
+	ft_strncmp.c\
+	ft_atoi.c\
+	ft_isalpha.c\
+	ft_isdigit.c\
+	ft_isalnum.c\
+	ft_isascii.c\
+	ft_isprint.c\
+	ft_toupper.c\
+	ft_tolower.c\
+	ft_memalloc.c\
+	ft_memdel.c\
+	ft_strnew.c\
+	ft_strdel.c\
+	ft_strclr.c\
+	ft_striter.c\
+	ft_striteri.c\
+	ft_strmap.c\
+	ft_strmapi.c\
+	ft_strequ.c\
+	ft_strnequ.c\
+	ft_strsub.c\
+	ft_strjoin.c\
+	ft_strtrim.c\
+	ft_strsplit.c\
+	ft_itoa.c\
+	ft_putchar.c\
+	ft_putstr.c\
+	ft_putendl.c\
+	ft_putnbr.c\
+	ft_putchar_fd.c\
+	ft_putstr_fd.c\
+	ft_putendl_fd.c\
+	ft_putnbr_fd.c\
+	ft_lstnew.c\
+	ft_lstdelone.c\
+	ft_lstdel.c\
+	ft_lstadd.c\
+	ft_lstiter.c\
+	ft_lstmap.c\
+	ft_pow.c\
+	ft_lststrsplit.c\
+	ft_lstprint.c\
+	ft_wordc.c\
+	ft_lstcount.c\
+	get_next_line.c\
+	ft_del.c\
+	ft_atof.c\
+	ft_freearr.c\
+	ft_strjoin_free.c\
+	ft_hyperbole.c\
+	ft_realloc.c\
+	ft_swap.c
 
-all: $(NAME)
+INC = -I ./includes
+SRC_DIR = src
+OBJ_DIR = obj
+OBJ			= $(SRC:.c=.o)
+SRCS		=	$(addprefix $(SRC_DIR)/, $(SRC))
+OBJS		=	$(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
-$(NAME): $(SRCO)
-	@ar rc $(NAME) $(SRCO)
-	@printf "\e[95mLibft Compiled."
+txtblk=\e[0;30m
+txtred=\e[0;31m # Red
+txtgrn=\e[0;32m # Green
+txtylw=\e[0;33m # Yellow
+txtblu=\e[0;34m # Blue
+txtpur=\e[0;35m # Purple
+txtcyn=\e[0;36m # Cyan
+txtwht=\e[0;37m # White
+bldblk=\e[1;30m # Black - Bold
+bldred=\e[1;31m # Red
+bldgrn=\e[1;32m # Green
+bldylw=\e[1;33m # Yellow
+bldblu=\e[1;34m # Blue
+bldpur=\e[1;35m # Purple
+bldcyn=\e[1;36m # Cyan
+bakblk=\e[40m
+bakred=\e[41m   # Red
+bakgrn=\e[42m   # Green
+bakylw=\e[43m   # Yellow
+bakblu=\e[44m   # Blue
+bakpur=\e[45m   # Purple
+bakcyn=\e[46m   # Cyan
+bakwht=\e[47m   # White
+txtrst=\e[0m
 
-$(SRC_PATH)%.o: $(SRC_PATH)%.c
-	@gcc $(FLAGS) -c $< -o $@
+
+all: directory $(NAME)
+
+$(NAME): $(OBJ_DIR) $(OBJS)
+	@ar -rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
+	@printf "${bldylw}[COMPILED]${bldpur}%40s${txtrst}\n" "$(NAME)"
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@$(CC) $(FLAGS) -c $^ -o $@ $(INC)
+
+directory: $(OBJ_DIR)
+
+$(OBJ_DIR):
+	@printf "${bldgrn}%40s${bldpur}%s${bldgrn}%s\n${txtrst}" "[Compiling" "$(NAME)!" "]"
+	@mkdir -p $(OBJ_DIR)
 
 clean:
-	@rm -f $(SRCO)
-	@printf "\e[91mLibft Object Files Removed."
+	@rm -rf $(OBJ)
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
 	@rm -f $(NAME)
-	@printf "\e[91mLibft Removed."
 
-re:	fclean all
+re: fclean all
 
-.PHONY: all fclean clean re
+.PHONY: clean all re fclean directory
