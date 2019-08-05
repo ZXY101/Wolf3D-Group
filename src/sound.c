@@ -2,8 +2,6 @@
 	
 void	sdl_audio_init()
 {
-	if (SDL_Init(SDL_INIT_AUDIO) < 0)
- 		ft_error("Could not init SDL!");
 	if(Mix_OpenAudio(8000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 512)==-1)
      	ft_error("Could not open audio device!");
 }
@@ -20,12 +18,12 @@ void	play_audio_effect(t_menu *menu, char *wav)
 
 void	play_music(t_menu *menu, char *wav)
 {
- 		menu->audio.music = Mix_LoadMUS(wav);
-	if (!Mix_PlayingMusic())
+	if (!Mix_PlayingMusic() && menu->run == 1)
 	{
+ 		menu->audio.music = Mix_LoadMUS(wav);
 		if (!menu->audio.music) 
 			ft_error("Could not load music");
-		if ( Mix_PlayMusic(menu->audio.music, -1) == -1 )
+		if (Mix_PlayMusic(menu->audio.music, -1) == -1 )
 			ft_error("Could not play music");
 	}
 }

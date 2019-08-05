@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:27 by stenner           #+#    #+#             */
-/*   Updated: 2019/08/04 21:59:22 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/05 07:48:06 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,7 @@ int		main(int ac, char **av)
 	map = map_interpreter(file, &env);
  	map_int_array(map, &env);
 	ft_lstdel(&map,del);
-// 	sdl_audio_init();
-// 	play_music(env.menu, "sounds/walk.wav");
-//	sdl_exit(env.menu);
-	
 	handle_hooks(env.win_ptr, &env);
-//	mlx_loop(env.mlx_ptr);
+	mlx_loop(env.mlx_ptr);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/08/04 21:37:21 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/08/05 07:28:26 by rcoetzer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ VEC_LIB_PATH = ./libvec/
 SRC_PATH = ./src/
 
 SDL_LOC = $(CURDIR)/SDL
-SDL_PKG_CONFG = $(SDL_LOC)/lib/pkgconfig/
+SDL_CONF = $(SDL_LOC)/lib/pkgconfig
 SDL_SRC=SDL2-2.0.10
 SDL_MIX_SRC=SDL2_mixer-2.0.4
 SDL_TTF_SRC=SDL2_ttf-2.0.15
@@ -62,7 +62,7 @@ SRCO = $(patsubst %.c, %.o, $(SRC))
 
 ifeq ($(UNAME_S),Linux)
 	MLX_FLAGS = $(MLX_PATH)/libmlx.a -lXext -lX11 -lm
-	LIBS += $(shell export PKG_CONFIG_PATH=$(SDL_PKG_CONFG); pkg-config --cflags --libs sdl2 SDL2_ttf SDL2_mixer)
+	LIBS += $(shell export PKG_CONFIG_PATH=$(SDL_CONF); pkg-config --cflags --libs sdl2 SDL2_ttf SDL2_mixer)
 endif
 ifeq ($(UNAME_S),Darwin)
 	MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit -lm
@@ -128,7 +128,7 @@ $(MLX_PATH):
 Brew:
 	curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
 
-pkg-conf:
+pkg-config:
 	brew install pkg-config
 
 re: fclean all
