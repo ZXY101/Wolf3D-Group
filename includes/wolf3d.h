@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/08/04 21:53:37 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/05 11:20:43 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,6 +214,10 @@ void		  map_int_array(t_list *lst, t_environment *env);
 void				init_env(t_environment *env);
 void				ft_error(char *str);
 void				printf_fps(t_environment *env);
+void				check1(int fd);
+void				check2(t_list *map);
+void				check3(t_list *map);
+void				check4(t_list *map);
 
 /*
 **Render

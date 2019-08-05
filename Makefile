@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+         #
+#    By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/08/05 07:28:26 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/08/05 11:19:36 by no-conne         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,8 @@ SRC_NAME =	main.c \
 			draw_textures.c \
 			misc.c \
 			text.c \
-			sound.c
+			sound.c \
+			map_validator.c \
 
 LIBS = -L $(LIBFT_PATH) -lft -L $(VEC_LIB_PATH) -lvec 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
