@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libvec.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 14:56:29 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/17 12:14:23 by stenner          ###   ########.fr       */
+/*   Updated: 2019/08/03 10:41:23 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIBVEC_H
 # define FILL_VECTOR(V, X, Y, Z, W) V.x = X, V.y = Y, V.z = Z, V.w = W
 # include <math.h>
-# include "../../libft/includes/libft.h"
+# include <libft.h>
 
 typedef struct	s_vector
 {

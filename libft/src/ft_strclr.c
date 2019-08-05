@@ -3,19 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/27 16:39:49 by stenner           #+#    #+#             */
-/*   Updated: 2019/05/31 11:56:29 by stenner          ###   ########.fr       */
+/*   Created: 2019/05/24 11:49:46 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/06/07 10:04:25 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 void	ft_strclr(char *s)
 {
+	size_t	i;
+
 	if (s)
 	{
-		ft_memset(s, '\0', ft_strlen(s));
+		i = ft_strlen(s);
+		ft_bzero(s, i);
 	}
 }

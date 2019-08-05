@@ -6,11 +6,11 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 14:22:49 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/17 12:21:55 by stenner          ###   ########.fr       */
+/*   Updated: 2019/08/03 09:44:01 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libvec.h"
+#include <libvec.h>
 #include <stdio.h>
 
 t_matrix	matrix_translate(t_vector v)

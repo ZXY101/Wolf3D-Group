@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 11:50:17 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/31 13:59:37 by stenner          ###   ########.fr       */
+/*   Updated: 2019/08/05 09:02:01 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,16 @@ void	ft_load_tex(t_environment *env)
 
 void	calc_textures(t_environment *env)
 {
-		env->td.text_num = env->map[env->rd.map_x][env->rd.map_y] - 1;
-		if (env->rd.side == 0)
-			env->td.wall_x = env->pos.y + env->rd.pwd * env->rd.ray_dir.y;
-		else
-			env->td.wall_x = env->pos.x + env->rd.pwd * env->rd.ray_dir.x;
-		env->td.wall_x -=	floor((env->td.wall_x));
-		env->td.tex_x = (int)(env->td.wall_x *
-		(double)(env->tex[env->td.text_num].x));
-		if (env->rd.side == 0 && env->rd.ray_dir.x > 0)
-			env->td.tex_x = env->tex[env->td.text_num].x - env->td.tex_x - 1;
-		if (env->rd.side == 1 && env->rd.ray_dir.y < 0)
-			env->td.tex_x = env->tex[env->td.text_num].x - env->td.tex_x - 1;
+	env->td.text_num = env->map[env->rd.map_x][env->rd.map_y] - 1;
+	if (env->rd.side == 0)
+		env->td.wall_x = env->pos.y + env->rd.pwd * env->rd.ray_dir.y;
+	else
+		env->td.wall_x = env->pos.x + env->rd.pwd * env->rd.ray_dir.x;
+	env->td.wall_x -= floor((env->td.wall_x));
+	env->td.tex_x = (int)(env->td.wall_x *
+	(double)(env->tex[env->td.text_num].x));
+	if (env->rd.side == 0 && env->rd.ray_dir.x > 0)
+		env->td.tex_x = env->tex[env->td.text_num].x - env->td.tex_x - 1;
+	if (env->rd.side == 1 && env->rd.ray_dir.y < 0)
+		env->td.tex_x = env->tex[env->td.text_num].x - env->td.tex_x - 1;
 }

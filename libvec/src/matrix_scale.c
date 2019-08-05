@@ -6,11 +6,11 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 17:14:36 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/15 17:27:59 by stenner          ###   ########.fr       */
+/*   Updated: 2019/08/03 09:45:40 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libvec.h"
+#include <libvec.h>
 
 t_matrix	matrix_scale(t_vector v)
 {

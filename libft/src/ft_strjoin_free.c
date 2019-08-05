@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 12:14:07 by stenner           #+#    #+#             */
-/*   Updated: 2019/07/29 12:16:16 by stenner          ###   ########.fr       */
+/*   Created: 2019/07/03 20:03:18 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/08/05 09:47:54 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strjoin_free(char *s1, char *s2, int free1, int free2)
+char		*ft_strjoin_free(char *s1, char *s2, int free1, int free2)
 {
-	char *ret;
+	char	*ret;
 
 	ret = ft_strjoin(s1, s2);
 	if (free1)

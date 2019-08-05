@@ -3,22 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   misc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer </var/spool/mail/ruben>           +#+  +:+       +#+        */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:01:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/07/31 18:02:13 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/05 09:07:34 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <wolf3d.h>
 
-void	init_env(t_environment *env)
+void		init_env(t_environment *env)
 {
 	env->mlx_ptr = mlx_init();
 	ft_init_tex(env);
 	ft_validate_tex(env);
 	ft_load_tex(env);
-	//pop_map_placeholder(env);
 	env->win_ptr = mlx_new_window(env->mlx_ptr, WINDOW_LENGTH, WINDOW_HEIGHT,
 	"wolf3d");
 	init_image(env, &env->img, WINDOW_LENGTH, WINDOW_HEIGHT);
@@ -59,7 +58,7 @@ void		printf_fps(t_environment *env)
 	char *str;
 
 	str = ft_itoa(1 / env->dt);
-	mlx_string_put(env->mlx_ptr, env->win_ptr,10,5, 0xffffff,"FPS: ");
-	mlx_string_put(env->mlx_ptr, env->win_ptr,50,5, 0xffffff,str);
+	mlx_string_put(env->mlx_ptr, env->win_ptr, 10, 5, 0xffffff, "FPS: ");
+	mlx_string_put(env->mlx_ptr, env->win_ptr, 50, 5, 0xffffff, str);
 	free(str);
 }

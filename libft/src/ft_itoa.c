@@ -3,40 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stenner <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rcoetzer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 14:14:31 by stenner           #+#    #+#             */
-/*   Updated: 2019/05/31 11:49:48 by stenner          ###   ########.fr       */
+/*   Created: 2019/05/26 08:30:33 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/06/07 10:54:51 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_itoa(int num)
+static int	ft_numlen(long nb)
 {
-	int		i;
-	long	n;
-	char	*str;
+	int		sz;
 
-	n = num;
-	i = ft_numlen(n);
-	if (!(str = (char*)malloc(sizeof(char) * (i + 1))))
+	sz = 0;
+	if (nb < 0)
+	{
+		nb *= -1;
+		sz++;
+	}
+	while (nb > 0)
+	{
+		nb /= 10;
+		sz++;
+	}
+	return (sz);
+}
+
+char		*ft_itoa(int nb)
+{
+	char	*str;
+	long	lnb;
+	int		i;
+
+	lnb = nb;
+	i = ft_numlen(lnb);
+	if (!(str = (char*)malloc(sizeof(str) * (i + 1))))
 		return (NULL);
 	str[i--] = '\0';
-	if (n == 0)
+	if (lnb == 0)
 	{
-		str[0] = 48;
+		str[0] = '0';
 		return (str);
 	}
-	if (n < 0)
+	if (lnb < 0)
 	{
 		str[0] = '-';
-		n = n * -1;
+		lnb *= -1;
 	}
-	while (n > 0)
+	while (lnb > 0)
 	{
-		str[i--] = 48 + (n % 10);
-		n = n / 10;
+		str[i--] = (lnb % 10) + '0';
+		lnb /= 10;
 	}
 	return (str);
 }
