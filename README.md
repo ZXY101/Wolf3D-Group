@@ -1,29 +1,21 @@
-Wolf-3D
+# Wolf-3d
 
-Wolf-3D is a group project made by ZXY101 (Shaun Tenner), Rubzy0422 and Nick-OC97.
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-compiling Wolf is always fun ..
-if you are running a linux system make sure you have these dependencies installed
-libfreetype6-dev make gcc pkg-config libx11-dev libxext-dev libasound2-dev libpulse-dev
+Wolf-3d is a 42 project to re-make wolf3d. 
+# Dependants on Linux:
+# Ubuntu:
+    sudo apt-get install libfreetype6-dev make gcc pkg-config libx11-dev libxext-dev libasound2-dev libpulse-dev
+# ARCH:
+    sudo pacman -S libfreetype6-dev make gcc pkg-config libx11-dev libxext-dev libasound2-dev libpulse-dev
+# Compiling:
+# Linux Systems:
+    make SDL
+# MAC:
+    make Brew
+    make pkg-config
+    make SDL
+    
+NOTE: Wolf3d is currentlyin development on os Ubuntu and Mac
 
-Ubuntu / Raspberry Pi:
-sudo apt-get install libfreetype6-dev make gcc pkg-config libx11-dev libxext-dev libasound2-dev libpulse-dev
-
-Arch: 
-sudo pacman -S libfreetype6-dev make gcc pkg-config libx11-dev libxext-dev libasound2-dev libpulse-dev
-
-
-if you have brew installed on your mac there is no need to install brew with make
-Installing:
-	MAC on 42:
-		make Brew;make pkg-config;make SDL
-	Arch:
-		make SDL
-	Ubuntu:
-		make SDL
-	Raspberry Pi:
-		make SDL
-
-
-please note Wolf-3d is being tested and perfected on Mac and Ubuntu 18.04
-have fun !
+# HAVE FUN!
