@@ -3,7 +3,7 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+         #
+#    By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
 #    Updated: 2019/08/05 09:16:57 by rcoetzer         ###   ########.fr        #
@@ -54,6 +54,7 @@ SRC_NAME =	main.c \
 			draw_textures.c \
 			misc.c \
 			text.c \
+			map_validator.c \
 			sdl.c \
 			sound.c
 

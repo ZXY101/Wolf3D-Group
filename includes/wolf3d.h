@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/08/05 11:18:56 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/05 11:20:43 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,9 +193,11 @@ void					put_image(t_environment *env, t_mlx_image *img);
 char					*main_menu();
 SDL_Texture				*load_tex(char *filename, SDL_Renderer *render);
 void					sdl_font_init(t_menu *menu);
+
 /*
 **Error Handeling
 */
+
 void					ft_init_tex(t_environment *env);
 void					ft_validate_tex(t_environment *env);
 void					ft_load_tex(t_environment *env);
@@ -208,11 +210,20 @@ void					draw_floor(t_environment *env, int x);
 **Misc
 */
 
+void				init_env(t_environment *env);
+
 /*
 **Map Stuff
 */
-t_list					*map_interpreter(const char *path, t_environment *env);
-void					map_int_array(t_list *lst, t_environment *env);
+
+t_list		*map_interpreter(const char *path, t_environment *env);
+void		  map_int_array(t_list *lst, t_environment *env);
+void				ft_error(char *str);
+void				printf_fps(t_environment *env);
+void				check1(int fd);
+void				check2(t_list *map);
+void				check3(t_list *map);
+void				check4(t_list *map);
 void					init_env(t_environment *env);
 void					ft_error(char *str);
 void					printf_fps(t_environment *env);
