@@ -6,7 +6,7 @@
 /*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/08/05 11:20:43 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/08/05 14:54:05 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,13 +220,16 @@ t_list		*map_interpreter(const char *path, t_environment *env);
 void		  map_int_array(t_list *lst, t_environment *env);
 void				ft_error(char *str);
 void				printf_fps(t_environment *env);
+void				check0(t_list *map);
 void				check1(int fd);
 void				check2(t_list *map);
 void				check3(t_list *map);
 void				check4(t_list *map);
-void					init_env(t_environment *env);
-void					ft_error(char *str);
-void					printf_fps(t_environment *env);
+void				check5(t_list *map);
+void				init_env(t_environment *env);
+void				ft_error(char *str);
+void				printf_fps(t_environment *env);
+void				map_format(t_list *map);
 
 /*
 **Render

@@ -6,7 +6,7 @@
 #    By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/08/05 09:16:57 by rcoetzer         ###   ########.fr        #
+#    Updated: 2019/08/05 14:17:24 by no-conne         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ SRC_NAME =	main.c \
 			misc.c \
 			text.c \
 			map_validator.c \
+			map_validator2.c \
 			sdl.c \
 			sound.c
 

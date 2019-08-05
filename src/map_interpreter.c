@@ -6,7 +6,7 @@
 /*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 09:41:53 by no-conne          #+#    #+#             */
-/*   Updated: 2019/08/05 11:30:41 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/08/05 15:14:52 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	checks(t_list *map)
 	check2(map);
 	check3(map);
 	check4(map);
+	check5(map);
+	map_format(map);
 }
 
 t_list	*map_interpreter(const char *path, t_environment *env)
