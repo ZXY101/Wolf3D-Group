@@ -6,7 +6,7 @@
 #    By: stenner <stenner@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/27 17:28:44 by stenner           #+#    #+#              #
-#    Updated: 2019/08/05 13:28:32 by stenner          ###   ########.fr        #
+#    Updated: 2019/08/06 14:52:55 by stenner          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,14 +46,16 @@ SRC_NAME =	main.c \
 			gfx_utility.c \
 			handle_hooks.c \
 			textures.c \
-			map_interpreter.c \
 			keys.c \
 			render_rays.c \
 		    main_menu.c \
 			draw_textures.c \
 			misc.c \
 			text.c \
+			map_split.c \
 			map_validator.c \
+			map_validator2.c \
+			map_interpreter.c \
 			sdl.c \
 			sound.c
 
