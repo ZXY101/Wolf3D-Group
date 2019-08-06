@@ -6,7 +6,7 @@
 /*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 11:18:37 by no-conne          #+#    #+#             */
-/*   Updated: 2019/08/05 14:35:38 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/08/06 11:08:54 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	check4(t_list *map)
 {
 	char	*c_content;
 	char	*c_content2;
-	int		diff;
 	t_list	*map2;
 
 	map2 = map->next;
@@ -56,29 +55,13 @@ void	check4(t_list *map)
 	{
 		c_content = map->content;
 		c_content2 = map2->content;
-		if (map->content_size > map2->content_size)
-		{
-			diff = map->content_size - map2->content_size;
-			while (diff-- != 0)
-			{
-				if (c_content[map->content_size - diff] == '0')
-					ft_error("Invalid map, 0's must be surrounded by nums");
-			}
-		}
+		check4_subf(map, map2, c_content);
 		map = map->next;
 		map2 = map2->next;
 	}
 	c_content = map->content;
 	c_content2 = map2->content;
-	if (map->content_size > map2->content_size)
-	{
-		diff = map->content_size - map2->content_size;
-		while (diff-- != 0)
-		{
-			if (c_content[map->content_size - diff] == '0')
-				ft_error("Invalid map, 0's must be surrounded by nums");
-		}
-	}
+	check4_subf(map, map2, c_content);
 }
 
 void	check5(t_list *map)
@@ -92,11 +75,8 @@ void	check5(t_list *map)
 		i = 0;
 		while (i < map->content_size - 1)
 		{
-			if ((c_content[i] >= 48 && c_content[i] <= 57) || c_content[i]
-			== 'F' || c_content[i] == 'x' || c_content[i] == ' ')
-				i++;
-			else
-				ft_error("Invalid characters in map");
+			check5_subf(c_content, i);
+			i++;
 		}
 		map = map->next;
 	}
@@ -104,10 +84,7 @@ void	check5(t_list *map)
 	i = 0;
 	while (i < map->content_size - 1)
 	{
-		if ((c_content[i] >= 48 && c_content[i] <= 57) || c_content[i] == 'F'
-		|| c_content[i] == 'x' || c_content[i] == ' ')
-			i++;
-		else
-			ft_error("Invalid characters in map");
+		check5_subf(c_content, i);
+		i++;
 	}
 }

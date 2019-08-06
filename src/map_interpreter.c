@@ -6,19 +6,29 @@
 /*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 09:41:53 by no-conne          #+#    #+#             */
-/*   Updated: 2019/08/05 15:14:52 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/08/06 11:26:19 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <wolf3d.h>
 
-void	checks(t_list *map)
+void	checks(t_list *map, int fd)
 {
+	check1(fd);
 	check2(map);
 	check3(map);
 	check4(map);
 	check5(map);
 	map_format(map);
+}
+
+t_list	*empty_check(t_list *tmp)
+{
+	if (tmp->next)
+		tmp = tmp->next;
+	else
+		ft_error("No map avaialble");
+	return (tmp);
 }
 
 t_list	*map_interpreter(const char *path, t_environment *env)
@@ -30,7 +40,6 @@ t_list	*map_interpreter(const char *path, t_environment *env)
 
 	map = ft_lstnew(NULL, 0);
 	fd = open(path, O_RDONLY);
-	check1(fd);
 	while (get_next_line(fd, &line) > 0)
 	{
 		tmp = map;
@@ -41,10 +50,10 @@ t_list	*map_interpreter(const char *path, t_environment *env)
 		free(line);
 	}
 	tmp = map;
-	tmp = tmp->next;
+	tmp = empty_check(tmp);
 	free(map);
 	map = tmp;
-	checks(map);
+	checks(map, fd);
 	close(fd);
 	return (map);
 }
