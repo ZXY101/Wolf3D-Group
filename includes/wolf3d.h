@@ -6,7 +6,7 @@
 /*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:52 by stenner           #+#    #+#             */
-/*   Updated: 2019/08/06 11:07:00 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/08/06 14:27:17 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ typedef struct			s_environment
 	t_tex_data			td;
 	t_menu				menu;
 	int					map_lst_size;
+	int					x_count;
 }						t_environment;
 
 /*
@@ -222,12 +223,14 @@ void				ft_error(char *str);
 void				printf_fps(t_environment *env);
 void				check0(t_list *map);
 void				check1(int fd);
+void				check1a(t_list *map, t_environment *env);
 void				check2(t_list *map);
 void				check3(t_list *map);
 void				check4(t_list *map);
 void				check4_subf(t_list *map, t_list *map2, char *c_content);
 void				check5(t_list *map);
 void				check5_subf(char *c_content, int i);
+void				check6(t_environment *env);
 void				init_env(t_environment *env);
 void				ft_error(char *str);
 void				printf_fps(t_environment *env);

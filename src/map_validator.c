@@ -6,7 +6,7 @@
 /*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 11:18:37 by no-conne          #+#    #+#             */
-/*   Updated: 2019/08/06 11:08:54 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/08/06 12:29:26 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	check3(t_list *map)
 		c_content = map->content;
 		if (c_content[0] == '0' || c_content[map->content_size - 2] == '0')
 			ft_error("Invalid map, border cannot contain 0");
+		if (c_content[0] == 'x' || c_content[map->content_size - 2] == 'x')
+			ft_error("Invalid map, border cannot contain x");
 		map = map->next;
 	}
 }

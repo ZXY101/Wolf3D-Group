@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   misc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:01:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/05 11:19:03 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/06 14:29:24 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ void		init_env(t_environment *env)
 	env->win_ptr = mlx_new_window(env->mlx_ptr, WINDOW_LENGTH, WINDOW_HEIGHT,
 	"wolf3d");
 	init_image(env, &env->img, WINDOW_LENGTH, WINDOW_HEIGHT);
-	env->pos.x = 3;
-	env->pos.y = 4.5;
 	env->dir.x = -1;
 	env->dir.y = 0;
 	env->plane.x = 0;
 	env->plane.y = 0.66;
 	env->map_lst_size = 0;
+	env->x_count = 0;
 	gettimeofday(&env->old_time, NULL);
 }
 

@@ -6,15 +6,16 @@
 /*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 09:41:53 by no-conne          #+#    #+#             */
-/*   Updated: 2019/08/06 11:26:19 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/08/06 12:46:38 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <wolf3d.h>
 
-void	checks(t_list *map, int fd)
+void	checks(t_list *map, int fd, t_environment *env)
 {
 	check1(fd);
+	check1a(map, env);
 	check2(map);
 	check3(map);
 	check4(map);
@@ -53,7 +54,7 @@ t_list	*map_interpreter(const char *path, t_environment *env)
 	tmp = empty_check(tmp);
 	free(map);
 	map = tmp;
-	checks(map, fd);
+	checks(map, fd, env);
 	close(fd);
 	return (map);
 }

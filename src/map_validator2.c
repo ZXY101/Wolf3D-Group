@@ -6,11 +6,30 @@
 /*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 13:46:31 by no-conne          #+#    #+#             */
-/*   Updated: 2019/08/06 11:09:56 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/08/06 12:56:35 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <wolf3d.h>
+
+void	check1a(t_list *map, t_environment *env)
+{
+	int	flag;
+
+	flag = 0;
+	if (env->map_lst_size < 3)
+		ft_error("Map too small");
+	while (map->next != NULL)
+	{
+		if ((map->content_size / 2) >= 3)
+			flag = 1;
+		map = map->next;
+	}
+	if ((map->content_size / 2) >= 3)
+		flag = 1;
+	if (flag == 0)
+		ft_error("Map too small");
+}
 
 void	check4_subf(t_list *map, t_list *map2, char *c_content)
 {
