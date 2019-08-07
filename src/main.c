@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 14:44:27 by stenner           #+#    #+#             */
-/*   Updated: 2019/08/05 13:02:48 by stenner          ###   ########.fr       */
+/*   Updated: 2019/08/06 14:44:55 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		main(int ac, char **av)
 	init_env(&env);
 	map = map_interpreter(file, &env);
 	map_int_array(map, &env);
+	check6(&env);
 	ft_lstdel(&map, del);
 	sdl_audio_init();
 	handle_hooks(env.win_ptr, &env);

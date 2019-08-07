@@ -6,7 +6,7 @@
 /*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:01:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/05 13:02:41 by stenner          ###   ########.fr       */
+/*   Updated: 2019/08/06 14:47:54 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ void		init_env(t_environment *env)
 	env->win_ptr = mlx_new_window(env->mlx_ptr, WINDOW_LENGTH, WINDOW_HEIGHT,
 	"wolf3d");
 	init_image(env, &env->img, WINDOW_LENGTH, WINDOW_HEIGHT);
-	env->pos.x = 1.5;
-	env->pos.y = 1.5;
 	env->dir.x = -1;
 	env->dir.y = 0;
 	env->plane.x = 0;
 	env->plane.y = 0.66;
 	env->map_lst_size = 0;
+	env->x_count = 0;
 	gettimeofday(&env->old_time, NULL);
 }
 
