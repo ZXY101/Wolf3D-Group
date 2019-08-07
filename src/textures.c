@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: stenner <stenner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 11:50:17 by stenner           #+#    #+#             */
-/*   Updated: 2019/08/05 09:02:01 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/07 10:03:59 by stenner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	ft_init_tex(t_environment *env)
 {
-	env->tex[0].name = "textures/colorstone.xpm";
-	env->tex[1].name = "textures/mossy.xpm";
+	env->tex[0].name = "textures/hmmm.xpm";
+	env->tex[1].name = "textures/left.xpm";
 	env->tex[2].name = "textures/right.xpm";
 	env->tex[3].name = "textures/greystone.xpm";
 	env->tex[4].name = "textures/water.xpm";
 	env->tex[5].name = "textures/mossy.xpm";
 	env->tex[6].name = "textures/wood.xpm";
 	env->tex[7].name = "textures/colorstone.xpm";
-	env->tex[8].name = "textures/wood.xpm";
-	env->tex[9].name = "textures/water.xpm";
+	env->tex[8].name = "textures/bluestone.xpm";
+	env->tex[9].name = "textures/eagle.xpm";
 }
 
 void	ft_validate_tex(t_environment *env)
