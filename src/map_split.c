@@ -6,7 +6,7 @@
 /*   By: no-conne <no-conne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 08:11:57 by no-conne          #+#    #+#             */
-/*   Updated: 2019/08/06 14:26:48 by no-conne         ###   ########.fr       */
+/*   Updated: 2019/08/07 08:02:58 by no-conne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,23 @@ void	map_int_array(t_list *lst, t_environment *env)
 
 	i = 0;
 	if (!(env->map = (int **)malloc(sizeof(int *) * env->map_lst_size)))
-		exit(0);
-	while (i++ < env->map_lst_size)
+		ft_error("malloc error");
+	while (i < env->map_lst_size)
 	{
-		c = 0;
+		c = -1;
 		if (!(env->map[i] = (int *)malloc(sizeof(int) *
 		(int)(lst->content_size / 2))))
-			exit(0);
+			ft_error("malloc error");
 		map_data = ft_strsplit(lst->content, ' ');
-		while (c < (int)(lst->content_size / 2))
+		while (++c < (int)(lst->content_size / 2))
 		{
 			pos_update(map_data, c, i, env);
 			env->map[i][c] = ft_atoi(map_data[c]);
 			free(map_data[c]);
-			c++;
 		}
 		free(map_data);
 		if (lst->next != NULL)
 			lst = lst->next;
+		i++;
 	}
 }
