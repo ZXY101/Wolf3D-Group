@@ -32,7 +32,7 @@ void	check2(t_list *map)
 	if (ft_strchr(tmp_map->content, '0'))
 		ft_error("invalid map, last row cannot have a 0 in it");
 	if (ft_strchr(tmp_map->content, 'x'))
-		ft_error("invalid map, first row cannot have a x in it");
+		ft_error("invalid map, last row cannot have a x in it");
 }
 
 void	check3(t_list *map)
